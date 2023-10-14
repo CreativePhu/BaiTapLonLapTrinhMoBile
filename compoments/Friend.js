@@ -23,11 +23,11 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: 10
+        marginLeft: 15
     },
     avt_friend: {
-        width: 60,
-        height: 60,
+        width: 55,
+        height: 55,
         backgroundColor: "#ccc",
         borderRadius: 30,
         display: 'flex',
@@ -36,5 +36,10 @@ const styles = StyleSheet.create({
     },
     name_friend: {
         fontSize: 12,
+        // borderWidth: 1,
+        width: "100%",
+        maxHeight: 40,
+        overflow: 'hidden',
+        paddingTop: 5
     },
 })
