@@ -10,10 +10,6 @@ import { Tin } from './compoments/Tin';
 const Stack = createNativeStackNavigator()
 export default function App() {
   return (
-    // <DoanChat />
-    // <CuocGoi />
-    // <DanhBa />
-    // <Tin />
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Đoạn Chat" component={DoanChat} options={{ headerShown: false }} />

@@ -29,11 +29,11 @@ const styles = StyleSheet.create({
     callPhone: {
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'space-between',
         marginBottom: 10
     },
     callPhoneLeft: {
         // borderWidth: 1,
-        flex: 12,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
@@ -66,11 +66,11 @@ const styles = StyleSheet.create({
     },
     callPhoneRight: {
         // borderWidth: 1,
-        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 30,
         height: 30,
+        width: 30,
         backgroundColor: "#ccc",
     },
 })

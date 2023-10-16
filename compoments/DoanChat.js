@@ -1,25 +1,16 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity, ScrollView, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { Header } from './Header';
 import { Footer } from './Footer';
-import { Friend } from './Friend';
-import { Chat } from './Chat';
+import { DoanChatFriend } from './DoanChatFriend';
+import { Chat } from './DoanChat_Chat';
 
 
 export function DoanChat({ navigation }) {
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <View style={styles.cover_text_title_header}>
-                    <TouchableOpacity style={styles.circle_header}>
-                        <Icon name="bars" size={20} color="gray" />
-                    </TouchableOpacity>
-                    <Text style={styles.text_title_header}>Đoạn Chat</Text>
-                </View>
-                <TouchableOpacity style={styles.circle_header}>
-                    <Icon name="pencil" size={20} color="gray" />
-                </TouchableOpacity>
-            </View>
+            <Header type={1} />
             <View style={styles.center}>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.contentCenter}>
@@ -31,12 +22,12 @@ export function DoanChat({ navigation }) {
                         </TouchableOpacity>
                         <View style={styles.listFriend}>
                             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.scrollview_listFriend}>
-                                <Friend name={"Ngô Thị Diễm Quỳnh"} />
-                                <Friend name={"Ngô Thị Diễm Quỳnh"} />
-                                <Friend name={"Ngô Thị Diễm Quỳnh"} />
-                                <Friend name={"Ngô Thị Diễm Quỳnh"} />
-                                <Friend name={"Ngô Thị Diễm Quỳnh"} />
-                                <Friend name={"Ngô Thị Diễm Quỳnh"} />
+                                <DoanChatFriend name={"Ngô Thị Diễm Quỳnh"} />
+                                <DoanChatFriend name={"Ngô Thị Diễm Quỳnh"} />
+                                <DoanChatFriend name={"Ngô Thị Diễm Quỳnh"} />
+                                <DoanChatFriend name={"Ngô Thị Diễm Quỳnh"} />
+                                <DoanChatFriend name={"Ngô Thị Diễm Quỳnh"} />
+                                <DoanChatFriend name={"Ngô Thị Diễm Quỳnh"} />
                             </ScrollView>
                         </View>
                         <View style={styles.listChat}>
@@ -53,7 +44,7 @@ export function DoanChat({ navigation }) {
                     </View>
                 </ScrollView>
             </View>
-            <Footer navigation={navigation} />
+            <Footer navigation={navigation} type={1} />
         </View>
     )
 }
@@ -62,35 +53,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#fff"
-    },
-    header: {
-        height: "100%",
-        width: "100%",
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'flex-end',
-        flex: 1.5,
-        paddingLeft: 15,
-        paddingRight: 15,
-        paddingBottom: 15
-    },
-    circle_header: {
-        width: 40,
-        height: 40,
-        backgroundColor: "#ccc",
-        borderRadius: 30,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    cover_text_title_header: {
-        flexDirection: 'row',
-        alignItems: 'center'
-    },
-    text_title_header: {
-        fontSize: 25,
-        fontWeight: '700',
-        marginLeft: 20
     },
     center: {
         backgroundColor: "#fff",

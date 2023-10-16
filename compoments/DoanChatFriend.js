@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-export function Friend(props) {
+export function DoanChatFriend(props) {
     return (
         <TouchableOpacity style={styles.friend}>
             <View style={styles.avt_friend}>
