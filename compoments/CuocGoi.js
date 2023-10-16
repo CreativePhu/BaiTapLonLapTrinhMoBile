@@ -1,35 +1,14 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
-import { CallPhone } from './CuocGoiCallPhone';
+import { View, StyleSheet } from 'react-native'
 import { Header } from './Header';
+import { Center } from './Center';
 import { Footer } from './Footer'
 
 export function CuocGoi({ navigation }) {
     return (
         <View style={styles.container}>
             <Header type={2} />
-            <View style={styles.center}>
-                <ScrollView showsVerticalScrollIndicator={false}>
-                    <Text style={styles.titleContent}>Gần đây</Text>
-                    <View style={styles.historyCall}>
-                        <CallPhone />
-                        <CallPhone />
-                        <CallPhone />
-                        <CallPhone />
-                        <CallPhone />
-                        <CallPhone />
-                        <CallPhone />
-                        <CallPhone />
-                        <CallPhone />
-                        <CallPhone />
-                        <CallPhone />
-                        <CallPhone />
-                        <CallPhone />
-                        <CallPhone />
-                        <CallPhone />
-                    </View>
-                </ScrollView>
-            </View>
+            <Center type={2} />
             <Footer navigation={navigation} type={2} />
         </View>
     )

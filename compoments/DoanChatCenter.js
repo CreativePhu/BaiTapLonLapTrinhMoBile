@@ -4,7 +4,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { DoanChatFriend } from './DoanChatFriend';
 import { Chat } from './DoanChat_Chat';
 
-
 export function DoanChatCenter() {
     return (
         <View style={styles.contentCenter}>

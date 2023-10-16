@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
-import { TinContent } from './TinContent';
+import { Center } from './Center';
 import { Header } from './Header';
 import { Footer } from './Footer'
 
@@ -8,11 +8,7 @@ export function Tin({ navigation }) {
     return (
         <View style={styles.container}>
             <Header type={4} />
-            <View style={styles.center}>
-                <ScrollView showsVerticalScrollIndicator={false}>
-                    <TinContent />
-                </ScrollView>
-            </View>
+            <Center type={4} />
             <Footer navigation={navigation} type={4} />
         </View>
     )

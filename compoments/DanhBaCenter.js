@@ -4,7 +4,7 @@ import { DanhBaContent1 } from './DanhBaContent1'
 import { DanhBaContent2 } from './DanhBaContent2'
 import { DanhBaContent3 } from './DanhBaContent3'
 
-export function DanhBaContent() {
+export function DanhBaCenter() {
     return (
         <View style={styles.contentCenter}>
             <View style={styles.titleCenter}>

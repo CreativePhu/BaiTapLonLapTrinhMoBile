@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import { TinContent1 } from './TinContent1';
 
-export function TinContent() {
+export function TinCenter() {
     return (
         <View style={styles.contentCenter}>
             <TouchableOpacity style={styles.itemContent}>
