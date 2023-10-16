@@ -1,13 +1,16 @@
+import 'react-native-gesture-handler';
 import React from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { DoanChat } from './compoments/DoanChat';
-import { CuocGoi } from './compoments/CuocGoi';
-import { DanhBa } from './compoments/DanhBa';
-import { Tin } from './compoments/Tin';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { DoanChat } from './compoments/DoanChat/DoanChat';
+import { CuocGoi } from './compoments/CuocGoi/CuocGoi';
+import { DanhBa } from './compoments/DanhBa/DanhBa';
+import { Tin } from './compoments/Tin/Tin';
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+
 export default function App() {
   return (
     <NavigationContainer>

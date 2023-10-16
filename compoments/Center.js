@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
-import { TinCenter } from './TinCenter';
-import { DoanChatCenter } from './DoanChatCenter';
-import { CuocGoiCenter } from './CuocGoiCenter';
-import { DanhBaCenter } from './DanhBaCenter';
+import { TinCenter } from './Tin/TinCenter';
+import { DoanChatCenter } from './DoanChat/DoanChatCenter';
+import { CuocGoiCenter } from './CuocGoi/CuocGoiCenter';
+import { DanhBaCenter } from './DanhBa/DanhBaCenter';
 
 export function Center({ type }) {
     return (

@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import { HeaderDoanChat } from './HeaderDoanChat'
-import { HeaderCuocGoi } from './HeaderCuocGoi'
-import { HeaderDanhBa } from './HeaderDanhBa'
-import { HeaderTinTuc } from './HeaderTinTuc'
+import { HeaderDoanChat } from './DoanChat/HeaderDoanChat'
+import { HeaderCuocGoi } from './CuocGoi/HeaderCuocGoi'
+import { HeaderDanhBa } from './DanhBa/HeaderDanhBa'
+import { HeaderTinTuc } from './Tin/HeaderTinTuc'
 
 export function Header(props) {
     return (

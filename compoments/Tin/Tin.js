@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
-import { Center } from './Center';
-import { Header } from './Header';
-import { Footer } from './Footer'
+import { Center } from '../Center';
+import { Header } from '../Header';
+import { Footer } from '../Footer'
 
 export function Tin({ navigation }) {
     return (

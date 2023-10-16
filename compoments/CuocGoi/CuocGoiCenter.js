@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
         marginBottom: 5
     },
     historyCall: {
-        marginTop: 10
+        padding: 10
     },
 })

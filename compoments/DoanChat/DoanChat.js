@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity, ScrollView, StyleSheet } from 'react-native'
-import { Header } from './Header';
-import { Footer } from './Footer';
-import { Center } from './Center';
+import { Header } from '../Header';
+import { Footer } from '../Footer';
+import { Center } from '../Center';
 
 export function DoanChat({ navigation }) {
     return (

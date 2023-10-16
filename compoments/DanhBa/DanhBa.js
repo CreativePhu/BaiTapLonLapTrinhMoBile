@@ -1,8 +1,8 @@
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
-import { Header } from './Header';
-import { Center } from './Center';
-import { Footer } from './Footer'
+import { View, StyleSheet } from 'react-native'
+import { Header } from '../Header';
+import { Center } from '../Center';
+import { Footer } from '../Footer'
 
 export function DanhBa({ navigation }) {
     return (
