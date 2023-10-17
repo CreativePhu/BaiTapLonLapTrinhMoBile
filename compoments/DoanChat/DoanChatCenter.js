@@ -9,7 +9,7 @@ export function DoanChatCenter() {
         <View style={styles.contentCenter}>
             <TouchableOpacity style={styles.search}>
                 <View style={styles.cover_iconSearch}>
-                    <Icon name="search" size={20} color="gray" />
+                    <Icon name="search" size={20} color="black" />
                 </View>
                 <Text style={styles.placeholderSearch}>Tìm Kiếm</Text>
             </TouchableOpacity>

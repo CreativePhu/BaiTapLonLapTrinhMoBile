@@ -7,7 +7,7 @@ export function Chat(props) {
     return (
         <TouchableOpacity style={styles.chat}>
             <View style={styles.imgChat}>
-                <Icon name="user" size={30} color="gray" />
+                <Icon name="user" size={30} color="black" />
             </View>
             <View style={styles.titleChat}>
                 <Text style={styles.nameChat}>{props.name}</Text>

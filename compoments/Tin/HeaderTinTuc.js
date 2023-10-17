@@ -7,7 +7,7 @@ export function HeaderTinTuc(props) {
         <React.Fragment>
             <View style={styles.header_left}>
                 <TouchableOpacity onPress={() => { props.navigation.openDrawer() }} style={styles.circle_header}>
-                    <Icon name="bars" size={20} color="gray" />
+                    <Icon name="bars" size={20} color="black" />
                 </TouchableOpacity>
                 <Text style={styles.text_title_header}>Tin</Text>
             </View>

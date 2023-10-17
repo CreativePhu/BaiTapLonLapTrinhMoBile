@@ -7,12 +7,12 @@ export function HeaderDoanChat(props) {
         <React.Fragment>
             <View style={styles.cover_text_title_header}>
                 <TouchableOpacity onPress={() => { props.navigation.openDrawer() }} style={styles.circle_header}>
-                    <Icon name="bars" size={20} color="gray" />
+                    <Icon name="bars" size={20} color="black" />
                 </TouchableOpacity>
                 <Text style={styles.text_title_header}>Đoạn Chat</Text>
             </View>
             <TouchableOpacity style={styles.circle_header}>
-                <Icon name="pencil" size={20} color="gray" />
+                <Icon name="pencil" size={20} color="black" />
             </TouchableOpacity>
         </React.Fragment>
     )

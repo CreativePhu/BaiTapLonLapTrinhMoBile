@@ -7,11 +7,6 @@ import { HeaderTinTuc } from './Tin/HeaderTinTuc'
 
 
 export function Header(props) {
-
-    React.useEffect(() => {
-        console.log(props.navigation)
-    })
-
     return (
         <View style={styles.header}>
             {props.type === 1 && <HeaderDoanChat navigation={props.navigation} />}

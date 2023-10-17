@@ -7,16 +7,16 @@ export function HeaderCuocGoi(props) {
         <React.Fragment>
             <View style={styles.header_left}>
                 <TouchableOpacity onPress={() => { props.navigation.openDrawer() }} style={styles.circle_header}>
-                    <Icon name="bars" size={20} color="gray" />
+                    <Icon name="bars" size={20} color="black" />
                 </TouchableOpacity>
                 <Text style={styles.text_title_header}>Cuộc Gọi</Text>
             </View>
             <View style={styles.header_right}>
                 <TouchableOpacity style={styles.circle_header}>
-                    <Icon name="phone" size={20} color="gray" />
+                    <Icon name="phone" size={20} color="black" />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.circle_header}>
-                    <Icon name="video-camera" size={20} color="gray" />
+                    <Icon name="video-camera" size={20} color="black" />
                 </TouchableOpacity>
             </View>
         </React.Fragment>

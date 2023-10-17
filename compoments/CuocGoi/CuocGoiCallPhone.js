@@ -8,7 +8,7 @@ export function CallPhone() {
         <TouchableOpacity style={styles.callPhone}>
             <View style={styles.callPhoneLeft}>
                 <View style={styles.imgCallPhone}>
-                    <Icon name="user" size={20} color="gray" />
+                    <Icon name="user" size={20} color="black" />
                 </View>
                 <View style={styles.detailCallPhone}>
                     <Text style={styles.nameCallPhone}>Don Rua Family</Text>
@@ -19,7 +19,7 @@ export function CallPhone() {
                 </View>
             </View>
             <View style={styles.callPhoneRight}>
-                <Icon name="phone" size={15} color="gray" />
+                <Icon name="phone" size={15} color="black" />
             </View>
         </TouchableOpacity>
     )

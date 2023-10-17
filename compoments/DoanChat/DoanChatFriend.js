@@ -7,7 +7,7 @@ export function DoanChatFriend(props) {
     return (
         <TouchableOpacity style={styles.friend}>
             <View style={styles.avt_friend}>
-                <Icon name="user" size={30} color="gray" />
+                <Icon name="user" size={30} color="black" />
             </View>
             <Text style={styles.name_friend}>{props.name}</Text>
         </TouchableOpacity>
