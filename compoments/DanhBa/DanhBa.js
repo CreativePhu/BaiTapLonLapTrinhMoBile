@@ -7,7 +7,7 @@ import { Footer } from '../Footer'
 export function DanhBa({ navigation }) {
     return (
         <View style={styles.container}>
-            <Header type={3} />
+            <Header type={3} navigation={navigation} />
             <Center type={3} />
             <Footer navigation={navigation} type={3} />
         </View>

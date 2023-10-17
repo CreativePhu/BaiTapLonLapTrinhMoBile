@@ -14,12 +14,12 @@ const Drawer = createDrawerNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Đoạn Chat" component={DoanChat} options={{ headerShown: false }} />
-        <Stack.Screen name="Cuộc Gọi" component={CuocGoi} options={{ headerShown: false }} />
-        <Stack.Screen name="Danh Bạ" component={DanhBa} options={{ headerShown: false }} />
-        <Stack.Screen name="Tin" component={Tin} options={{ headerShown: false }} />
-      </Stack.Navigator>
+      <Drawer.Navigator>
+        <Drawer.Screen name="DoanChat" component={DoanChat} options={{ drawerItemStyle: { display: 'none' }, headerShown: false }} />
+        <Drawer.Screen name="CuocGoi" component={CuocGoi} options={{ drawerItemStyle: { display: 'none' }, headerShown: false }} />
+        <Drawer.Screen name="DanhBa" component={DanhBa} options={{ drawerItemStyle: { display: 'none' }, headerShown: false }} />
+        <Drawer.Screen name="Tin" component={Tin} options={{ drawerItemStyle: { display: 'none' }, headerShown: false }} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }

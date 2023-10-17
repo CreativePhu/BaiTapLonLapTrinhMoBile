@@ -5,13 +5,19 @@ import { HeaderCuocGoi } from './CuocGoi/HeaderCuocGoi'
 import { HeaderDanhBa } from './DanhBa/HeaderDanhBa'
 import { HeaderTinTuc } from './Tin/HeaderTinTuc'
 
+
 export function Header(props) {
+
+    React.useEffect(() => {
+        console.log(props.navigation)
+    })
+
     return (
         <View style={styles.header}>
-            {props.type === 1 && <HeaderDoanChat />}
-            {props.type === 2 && <HeaderCuocGoi />}
-            {props.type === 3 && <HeaderDanhBa />}
-            {props.type === 4 && <HeaderTinTuc />}
+            {props.type === 1 && <HeaderDoanChat navigation={props.navigation} />}
+            {props.type === 2 && <HeaderCuocGoi navigation={props.navigation} />}
+            {props.type === 3 && <HeaderDanhBa navigation={props.navigation} />}
+            {props.type === 4 && <HeaderTinTuc navigation={props.navigation} />}
         </View>
     )
 }

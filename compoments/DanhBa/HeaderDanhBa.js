@@ -2,11 +2,11 @@ import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export function HeaderDanhBa() {
+export function HeaderDanhBa(props) {
     return (
         <React.Fragment>
             <View style={styles.header_left}>
-                <TouchableOpacity style={styles.circle_header}>
+                <TouchableOpacity onPress={() => { props.navigation.openDrawer() }} style={styles.circle_header}>
                     <Icon name="bars" size={20} color="gray" />
                 </TouchableOpacity>
                 <Text style={styles.text_title_header}>Danh Bạ</Text>

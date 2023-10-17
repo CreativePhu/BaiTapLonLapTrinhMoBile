@@ -7,7 +7,7 @@ import { Footer } from '../Footer'
 export function Tin({ navigation }) {
     return (
         <View style={styles.container}>
-            <Header type={4} />
+            <Header type={4} navigation={navigation} />
             <Center type={4} />
             <Footer navigation={navigation} type={4} />
         </View>

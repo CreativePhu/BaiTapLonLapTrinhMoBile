@@ -7,7 +7,7 @@ import { Footer } from '../Footer'
 export function CuocGoi({ navigation }) {
     return (
         <View style={styles.container}>
-            <Header type={2} />
+            <Header type={2} navigation={navigation} />
             <Center type={2} />
             <Footer navigation={navigation} type={2} />
         </View>

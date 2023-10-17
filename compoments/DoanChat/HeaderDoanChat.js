@@ -2,11 +2,11 @@ import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export function HeaderDoanChat() {
+export function HeaderDoanChat(props) {
     return (
         <React.Fragment>
             <View style={styles.cover_text_title_header}>
-                <TouchableOpacity style={styles.circle_header}>
+                <TouchableOpacity onPress={() => { props.navigation.openDrawer() }} style={styles.circle_header}>
                     <Icon name="bars" size={20} color="gray" />
                 </TouchableOpacity>
                 <Text style={styles.text_title_header}>Đoạn Chat</Text>
