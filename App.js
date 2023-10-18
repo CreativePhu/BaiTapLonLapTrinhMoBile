@@ -1,13 +1,9 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { DoanChat } from './compoments/DoanChat/DoanChat';
-import { CuocGoi } from './compoments/CuocGoi/CuocGoi';
-import { DanhBa } from './compoments/DanhBa/DanhBa';
-import { Tin } from './compoments/Tin/Tin';
 import { MyDrawer } from './compoments/MyDrawer';
+import { MyFooter } from './compoments/MyFooter';
 
 const Drawer = createDrawerNavigator();
 
@@ -18,36 +14,12 @@ export default function App() {
         drawerContent={(props) => <MyDrawer {...props} />}
         screenOptions={{
           drawerStyle: {
-            width: Dimensions.get('window').width / 1.3,
+            width: 320
           },
         }}>
         <Drawer.Screen
-          name="DoanChat"
-          component={DoanChat}
-          options={{
-            drawerItemStyle: { display: 'none' },
-            headerShown: false,
-          }}
-        />
-        <Drawer.Screen
-          name="CuocGoi"
-          component={CuocGoi}
-          options={{
-            drawerItemStyle: { display: 'none' },
-            headerShown: false,
-          }}
-        />
-        <Drawer.Screen
-          name="DanhBa"
-          component={DanhBa}
-          options={{
-            drawerItemStyle: { display: 'none' },
-            headerShown: false,
-          }}
-        />
-        <Drawer.Screen
-          name="Tin"
-          component={Tin}
+          name="MyFooter"
+          component={MyFooter}
           options={{
             drawerItemStyle: { display: 'none' },
             headerShown: false,

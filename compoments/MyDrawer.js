@@ -100,8 +100,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     imgAccount: {
-        width: 40,
-        height: 40,
+        width: 35,
+        height: 35,
         backgroundColor: "#f6f6f6",
         borderWidth: 1,
         borderRadius: 30,
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
         // demo
     },
     contentDrawer1: {
-        width: "90%",
+        width: "94%",
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
@@ -127,8 +127,8 @@ const styles = StyleSheet.create({
         // borderWidth: 1
     },
     iconCententDrawer1: {
-        width: 40,
-        height: 40,
+        width: 35,
+        height: 35,
         backgroundColor: "rgb(221 221 221)",
         justifyContent: 'center',
         alignItems: 'center',
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
 
     },
     titleGroup2: {
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: '700',
         color: "blue"
     },
@@ -173,8 +173,8 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     imgGroup: {
-        width: 40,
-        height: 40,
+        width: 35,
+        height: 35,
         backgroundColor: "rgb(221 221 221)",
         borderRadius: 5,
         justifyContent: 'center',
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     nameGroup: {
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: '400',
     },
     countPeopleGroup: {
