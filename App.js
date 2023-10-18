@@ -12,11 +12,7 @@ export default function App() {
     <NavigationContainer>
       <Drawer.Navigator
         drawerContent={(props) => <MyDrawer {...props} />}
-        screenOptions={{
-          drawerStyle: {
-            width: 320
-          },
-        }}>
+      >
         <Drawer.Screen
           name="MyFooter"
           component={MyFooter}

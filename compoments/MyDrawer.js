@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Icon1 from 'react-native-vector-icons/Ionicons';
-import Icon2 from 'react-native-vector-icons/MaterialIcons';
-import Icon3 from 'react-native-vector-icons/FontAwesome5';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 export function MyDrawer(props) {
 
@@ -19,36 +19,36 @@ export function MyDrawer(props) {
             <TouchableOpacity style={styles.accountSetting}>
                 <View style={styles.account}>
                     <View style={styles.imgAccount}>
-                        <Icon name="user" size={25} color="black" />
+                        <FontAwesome name="user" size={25} color="black" />
                     </View>
                     <Text style={styles.nameAccount}>Thiên Phú</Text>
-                    <Icon name="angle-down" size={30} color="black" />
+                    <FontAwesome name="angle-down" size={30} color="black" />
                 </View>
                 <View style={styles.settingAccount}>
-                    <Icon1 name="settings-sharp" size={25} color="black" />
+                    <Ionicons name="settings-sharp" size={20} color="black" />
                 </View>
             </TouchableOpacity>
             <TouchableOpacity style={styles.contentDrawer1}>
                 <View style={styles.iconCententDrawer1}>
-                    <Icon1 name="chatbubble-sharp" size={25} color="black" />
+                    <Ionicons name="chatbubble-sharp" size={25} color="black" />
                 </View>
                 <Text style={styles.textAccountDrawer1}>Đoạn chat</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.contentDrawer1}>
                 <View style={styles.iconCententDrawer1}>
-                    <Icon1 name="chatbubble-ellipses-sharp" size={25} color="black" />
+                    <Ionicons name="chatbubble-ellipses-sharp" size={25} color="black" />
                 </View>
                 <Text style={styles.textAccountDrawer1}>Tin nhắn đang chờ</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.contentDrawer1}>
                 <View style={styles.iconCententDrawer1}>
-                    <Icon2 name="store" size={25} color="black" />
+                    <MaterialIcons name="store" size={25} color="black" />
                 </View>
                 <Text style={styles.textAccountDrawer1}>Marketplace</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.contentDrawer1}>
                 <View style={styles.iconCententDrawer1}>
-                    <Icon3 name="warehouse" size={20} color="black" />
+                    <FontAwesome5 name="warehouse" size={15} color="black" />
                 </View>
                 <Text style={styles.textAccountDrawer1}>Kho lưu trữ</Text>
             </TouchableOpacity>
@@ -66,7 +66,7 @@ export function MyDrawer(props) {
                         return (
                             <TouchableOpacity key={index} style={styles.group}>
                                 <View style={styles.imgGroup}>
-                                    <Icon name="user" size={25} color="black" />
+                                    <FontAwesome name="user" size={25} color="black" />
                                 </View>
                                 <View style={styles.detailContentGroup}>
                                     <Text style={styles.nameGroup}>{item.name}</Text>
@@ -121,8 +121,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        marginTop: 10,
-        padding: 10,
+        padding: 8,
         borderRadius: 15,
         // borderWidth: 1
     },
@@ -158,7 +157,7 @@ const styles = StyleSheet.create({
     titleGroup2: {
         fontSize: 14,
         fontWeight: '700',
-        color: "blue"
+        color: "rgb(0 122 255)"
     },
     listGroup: {
         alignItems: 'center',

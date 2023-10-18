@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     titleRight: {
         fontSize: 16,
         fontWeight: '700',
-        color: "#637EDE"
+        color: "rgb(0 122 255)"
     },
     listContent: {
         overflow: 'hidden',

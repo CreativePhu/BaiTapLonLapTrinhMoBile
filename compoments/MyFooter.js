@@ -15,7 +15,7 @@ export function MyFooter() {
     return (
         <Tab.Navigator
             screenOptions={{
-                tabBarStyle: { height: 70 },
+                tabBarStyle: { height: 60 },
                 tabBarLabelStyle: { fontSize: 14 },
                 headerShown: false
             }}

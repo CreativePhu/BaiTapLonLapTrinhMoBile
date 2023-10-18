@@ -8,7 +8,7 @@ export function TinCenter() {
         <View style={styles.contentCenter}>
             <TouchableOpacity style={styles.itemContent}>
                 <View style={styles.iconContent}>
-                    <Icon1 name="add" size={35} color="black" />
+                    <Icon1 name="add" size={30} color="black" />
                 </View>
                 <Text style={styles.nameContent}>Thêm vào tin</Text>
             </TouchableOpacity>
@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
     itemContent: {
-        width: 170,
-        height: 240,
+        width: 160,
+        height: 220,
         borderRadius: 20,
         backgroundColor: "#f6f6f6",
         position: 'relative',

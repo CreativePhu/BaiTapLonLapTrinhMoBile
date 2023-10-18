@@ -7,7 +7,7 @@ export function TinContent1() {
         <TouchableOpacity style={styles.itemContent}>
             <View style={styles.iconContent}>
                 <View style={styles.avtContent}>
-                    <Icon name="user" size={25} color="black" />
+                    <Icon name="user" size={20} color="black" />
                 </View>
             </View>
             <Text style={styles.nameContent}>Thêm vào tin</Text>
@@ -17,8 +17,8 @@ export function TinContent1() {
 
 const styles = StyleSheet.create({
     itemContent: {
-        width: 170,
-        height: 240,
+        width: 160,
+        height: 220,
         borderRadius: 20,
         backgroundColor: "#f6f6f6",
         position: 'relative',
@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
         color: "#fff"
     },
     avtContent: {
-        width: 45,
-        height: 45,
+        width: 40,
+        height: 40,
         borderWidth: 3,
         borderColor: "#fff",
         borderRadius: 30,
