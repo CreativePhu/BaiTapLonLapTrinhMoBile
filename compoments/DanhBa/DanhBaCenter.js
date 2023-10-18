@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
     contentCenter: {
         flex: 1,
         // borderWidth: 1,
-        paddingLeft: 10,
-        paddingRight: 10
+        paddingLeft: 15,
+        paddingRight: 15
     },
     titleCenter: {
         flexDirection: 'row',

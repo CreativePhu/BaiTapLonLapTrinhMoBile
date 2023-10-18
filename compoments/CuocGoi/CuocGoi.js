@@ -1,12 +1,10 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import { Header } from '../Header';
 import { Center } from '../Center';
 
-export function CuocGoi({ navigation }) {
+export function CuocGoi() {
     return (
         <View style={styles.container}>
-            <Header type={2} navigation={navigation} />
             <Center type={2} />
         </View>
     )

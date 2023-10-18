@@ -32,10 +32,11 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '700',
         color: "#ccc",
-        marginLeft: 10,
-        marginBottom: 5
+        marginLeft: 15,
+        marginBottom: 10
     },
     historyCall: {
-        padding: 12
+        paddingLeft: 15,
+        paddingRight: 15
     },
 })

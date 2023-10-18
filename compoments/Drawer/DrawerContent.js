@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-export function MyDrawer(props) {
+export function DrawerContent({ navigation }) {
 
     const [groups, setGroups] = React.useState([
         { name: "IT TUYỂN DỤNG - TÌM VIỆC LÀM", count: 1000 },
@@ -28,7 +28,7 @@ export function MyDrawer(props) {
                     <Ionicons name="settings-sharp" size={20} color="black" />
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.contentDrawer1}>
+            <TouchableOpacity onPress={() => { navigation.navigate('Đoạn chat') }} style={styles.contentDrawer1}>
                 <View style={styles.iconCententDrawer1}>
                     <Ionicons name="chatbubble-sharp" size={25} color="black" />
                 </View>

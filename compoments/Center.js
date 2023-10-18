@@ -20,7 +20,6 @@ export function Center({ type }) {
 
 const styles = StyleSheet.create({
     center: {
-        flex: 12,
         // borderWidth: 1,
     },
 })

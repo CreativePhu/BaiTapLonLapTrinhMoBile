@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     },
     listChat: {
         width: "100%",
-        paddingLeft: 15
+        paddingLeft: 15,
+        paddingRight: 15
     },
 })
