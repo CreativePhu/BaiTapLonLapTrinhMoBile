@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     textListContent2: {
-        fontSize: 13,
+        fontSize: 12,
         fontWeight: '600',
         color: "#ccc"
     },

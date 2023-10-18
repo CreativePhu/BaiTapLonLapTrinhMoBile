@@ -18,7 +18,7 @@ export default function App() {
         drawerContent={(props) => <MyDrawer {...props} />}
         screenOptions={{
           drawerStyle: {
-            width: Dimensions.get('window').width / 1.2,
+            width: Dimensions.get('window').width / 1.3,
           },
         }}>
         <Drawer.Screen

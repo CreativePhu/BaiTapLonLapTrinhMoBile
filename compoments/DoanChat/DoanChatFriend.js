@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     avt_friend: {
         width: 55,
         height: 55,
-        backgroundColor: "#ccc",
+        backgroundColor: "#f6f6f6",
         borderRadius: 30,
         display: 'flex',
         justifyContent: 'center',

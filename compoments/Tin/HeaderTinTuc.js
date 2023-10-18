@@ -7,7 +7,7 @@ export function HeaderTinTuc(props) {
         <React.Fragment>
             <View style={styles.header_left}>
                 <TouchableOpacity onPress={() => { props.navigation.openDrawer() }} style={styles.circle_header}>
-                    <Icon name="bars" size={20} color="black" />
+                    <Icon name="bars" size={18} color="black" />
                 </TouchableOpacity>
                 <Text style={styles.text_title_header}>Tin</Text>
             </View>
@@ -17,9 +17,9 @@ export function HeaderTinTuc(props) {
 
 const styles = StyleSheet.create({
     circle_header: {
-        width: 40,
-        height: 40,
-        backgroundColor: "#ccc",
+        width: 35,
+        height: 35,
+        backgroundColor: "#f6f6f6",
         borderRadius: 30,
         display: 'flex',
         justifyContent: 'center',
@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     text_title_header: {
-        fontSize: 25,
-        fontWeight: '700',
+        fontSize: 22,
+        fontWeight: 'bold',
         marginLeft: 20
     },
 })

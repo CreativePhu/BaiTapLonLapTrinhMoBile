@@ -48,9 +48,9 @@ export function MyDrawer(props) {
             </TouchableOpacity>
             <TouchableOpacity style={styles.contentDrawer1}>
                 <View style={styles.iconCententDrawer1}>
-                    <Icon3 name="warehouse" size={25} color="black" />
+                    <Icon3 name="warehouse" size={20} color="black" />
                 </View>
-                <Text style={styles.textAccountDrawer1}>Đoạn chat</Text>
+                <Text style={styles.textAccountDrawer1}>Kho lưu trữ</Text>
             </TouchableOpacity>
             <View style={styles.lableGroup}>
                 <Text style={styles.titleGroup1}>Cộng đồng</Text>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     imgAccount: {
         width: 40,
         height: 40,
-        backgroundColor: "#ccc",
+        backgroundColor: "#f6f6f6",
         borderWidth: 1,
         borderRadius: 30,
         justifyContent: 'center',
@@ -124,12 +124,12 @@ const styles = StyleSheet.create({
         marginTop: 10,
         padding: 10,
         borderRadius: 15,
-        borderWidth: 1
+        // borderWidth: 1
     },
     iconCententDrawer1: {
-        width: 30,
-        height: 30,
-        backgroundColor: "#ccc",
+        width: 40,
+        height: 40,
+        backgroundColor: "rgb(221 221 221)",
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 5,
@@ -170,12 +170,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: "90%",
         overflow: 'hidden',
-        marginBottom: 10
+        marginBottom: 20
     },
     imgGroup: {
         width: 40,
         height: 40,
-        backgroundColor: "#ccc",
+        backgroundColor: "rgb(221 221 221)",
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
@@ -190,6 +190,5 @@ const styles = StyleSheet.create({
     countPeopleGroup: {
         fontSize: 12,
         color: "#ccc",
-        fontWeight: '700'
     },
 })

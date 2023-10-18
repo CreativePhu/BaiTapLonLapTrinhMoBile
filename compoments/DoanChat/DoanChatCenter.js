@@ -9,7 +9,7 @@ export function DoanChatCenter() {
         <View style={styles.contentCenter}>
             <TouchableOpacity style={styles.search}>
                 <View style={styles.cover_iconSearch}>
-                    <Icon name="search" size={20} color="black" />
+                    <Icon name="search" size={20} color="gray" />
                 </View>
                 <Text style={styles.placeholderSearch}>Tìm Kiếm</Text>
             </TouchableOpacity>
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         width: "92%",
-        backgroundColor: "#CCC",
+        backgroundColor: "#f6f6f6",
         borderRadius: 20,
         height: 40,
     },
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     placeholderSearch: {
-        fontSize: 16
+        fontSize: 15,
+        color: "gray"
     },
     scrollview_listFriend: {
         flex: 1,

@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         width: 55,
         height: 55,
         borderRadius: 60,
-        backgroundColor: "#ccc",
+        backgroundColor: "#f6f6f6",
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center'
@@ -39,10 +39,10 @@ const styles = StyleSheet.create({
         marginLeft: 10
     },
     nameChat: {
-        fontSize: 18,
+        fontSize: 16,
         marginBottom: 5
     },
     contentChat: {
-        fontSize: 14,
+        fontSize: 13,
     },
 })

@@ -7,12 +7,12 @@ export function HeaderDoanChat(props) {
         <React.Fragment>
             <View style={styles.cover_text_title_header}>
                 <TouchableOpacity onPress={() => { props.navigation.openDrawer() }} style={styles.circle_header}>
-                    <Icon name="bars" size={20} color="black" />
+                    <Icon name="bars" size={18} color="black" />
                 </TouchableOpacity>
                 <Text style={styles.text_title_header}>Đoạn Chat</Text>
             </View>
             <TouchableOpacity style={styles.circle_header}>
-                <Icon name="pencil" size={20} color="black" />
+                <Icon name="pencil" size={18} color="black" />
             </TouchableOpacity>
         </React.Fragment>
     )
@@ -20,9 +20,9 @@ export function HeaderDoanChat(props) {
 
 const styles = StyleSheet.create({
     circle_header: {
-        width: 40,
-        height: 40,
-        backgroundColor: "#ccc",
+        width: 35,
+        height: 35,
+        backgroundColor: "#f6f6f6",
         borderRadius: 30,
         display: 'flex',
         justifyContent: 'center',
@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     text_title_header: {
-        fontSize: 25,
-        fontWeight: '700',
+        fontSize: 22,
+        fontWeight: 'bold',
         marginLeft: 20
     },
 })

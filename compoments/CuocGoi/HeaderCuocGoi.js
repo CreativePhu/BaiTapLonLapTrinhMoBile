@@ -7,16 +7,16 @@ export function HeaderCuocGoi(props) {
         <React.Fragment>
             <View style={styles.header_left}>
                 <TouchableOpacity onPress={() => { props.navigation.openDrawer() }} style={styles.circle_header}>
-                    <Icon name="bars" size={20} color="black" />
+                    <Icon name="bars" size={18} color="black" />
                 </TouchableOpacity>
                 <Text style={styles.text_title_header}>Cuộc Gọi</Text>
             </View>
             <View style={styles.header_right}>
                 <TouchableOpacity style={styles.circle_header}>
-                    <Icon name="phone" size={20} color="black" />
+                    <Icon name="phone" size={18} color="black" />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.circle_header}>
-                    <Icon name="video-camera" size={20} color="black" />
+                    <Icon name="video-camera" size={18} color="black" />
                 </TouchableOpacity>
             </View>
         </React.Fragment>
@@ -25,9 +25,9 @@ export function HeaderCuocGoi(props) {
 
 const styles = StyleSheet.create({
     circle_header: {
-        width: 40,
-        height: 40,
-        backgroundColor: "#ccc",
+        width: 35,
+        height: 35,
+        backgroundColor: "#f6f6f6",
         borderRadius: 30,
         display: 'flex',
         justifyContent: 'center',
@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
         flex: 3,
     },
     text_title_header: {
-        fontSize: 25,
-        fontWeight: '700',
+        fontSize: 22,
+        fontWeight: 'bold',
         marginLeft: 20
     },
     header_right: {

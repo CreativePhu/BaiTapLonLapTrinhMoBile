@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { Center } from '../Center';
 import { Header } from '../Header';
 import { Footer } from '../Footer'

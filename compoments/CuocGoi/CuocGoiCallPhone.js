@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: "#ccc"
+        backgroundColor: "#f6f6f6"
     },
     detailCallPhone: {
         paddingLeft: 10
@@ -71,6 +71,6 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         height: 30,
         width: 30,
-        backgroundColor: "#ccc",
+        backgroundColor: "#f6f6f6",
     },
 })
