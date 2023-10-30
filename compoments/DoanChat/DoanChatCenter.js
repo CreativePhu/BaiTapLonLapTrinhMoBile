@@ -1,10 +1,34 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity, ScrollView, StyleSheet } from 'react-native'
+import { View, Text, Image, TouchableOpacity, ScrollView, StyleSheet, FlatList } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { DoanChatFriend } from './DoanChatFriend';
-import { Chat } from './DoanChat_Chat';
 
-export function DoanChatCenter() {
+export function DoanChatCenter({ navigation }) {
+
+    const [dataChatFriend, setDataChatFriend] = React.useState([
+        { id: 1, name: "Ngô Thị Diễm Quỳnh", image: "" },
+        { id: 2, name: "Ngô Thị Diễm Quỳnh", image: "" },
+        { id: 3, name: "Ngô Thị Diễm Quỳnh", image: "" },
+        { id: 4, name: "Ngô Thị Diễm Quỳnh", image: "" },
+        { id: 5, name: "Ngô Thị Diễm Quỳnh", image: "" },
+        { id: 6, name: "Ngô Thị Diễm Quỳnh", image: "" },
+        { id: 7, name: "Ngô Thị Diễm Quỳnh", image: "" },
+        { id: 8, name: "Ngô Thị Diễm Quỳnh", image: "" },
+    ])
+
+    const [dataChat, setDataChat] = React.useState([
+        { id: 1, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
+        { id: 2, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
+        { id: 3, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
+        { id: 4, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
+        { id: 5, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
+        { id: 6, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
+        { id: 7, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
+        { id: 8, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
+        { id: 9, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
+        { id: 10, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
+    ])
+
+
     return (
         <View style={styles.contentCenter}>
             <TouchableOpacity style={styles.search}>
@@ -14,25 +38,69 @@ export function DoanChatCenter() {
                 <Text style={styles.placeholderSearch}>Tìm Kiếm</Text>
             </TouchableOpacity>
             <View style={styles.listFriend}>
-                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.scrollview_listFriend}>
-                    <DoanChatFriend name={"Ngô Thị Diễm Quỳnh"} />
-                    <DoanChatFriend name={"Ngô Thị Diễm Quỳnh"} />
-                    <DoanChatFriend name={"Ngô Thị Diễm Quỳnh"} />
-                    <DoanChatFriend name={"Ngô Thị Diễm Quỳnh"} />
-                    <DoanChatFriend name={"Ngô Thị Diễm Quỳnh"} />
-                    <DoanChatFriend name={"Ngô Thị Diễm Quỳnh"} />
-                </ScrollView>
+                <FlatList
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    data={dataChatFriend}
+                    renderItem={({ item }) => {
+                        const styles = StyleSheet.create({
+                            friend: {
+                                overflow: 'hidden',
+                                width: 80,
+                                maxHeight: 100,
+                                // borderWidth: 1,
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                marginLeft: 15
+                            },
+                            avt_friend: {
+                                width: 55,
+                                height: 55,
+                                backgroundColor: "#f6f6f6",
+                                borderRadius: 30,
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            },
+                            name_friend: {
+                                fontSize: 12,
+                                // borderWidth: 1,
+                                width: "100%",
+                                maxHeight: 40,
+                                overflow: 'hidden',
+                                paddingTop: 5
+                            },
+                        })
+                        return (
+                            <TouchableOpacity style={styles.friend}>
+                                <View style={styles.avt_friend}>
+                                    <Icon name="user" size={30} color="black" />
+                                </View>
+                                <Text style={styles.name_friend}>{item.name}</Text>
+                            </TouchableOpacity>
+                        )
+                    }}
+                    extraData={dataChatFriend}
+                    keyExtractor={(item) => (item.id)}
+                />
             </View>
             <View style={styles.listChat}>
-                <Chat name={"Ngô Thiên Phú"} contentChat={"Mai đi chơi không"} />
-                <Chat name={"Ngô Thiên Phú"} contentChat={"Mai đi chơi không"} />
-                <Chat name={"Ngô Thiên Phú"} contentChat={"Mai đi chơi không"} />
-                <Chat name={"Ngô Thiên Phú"} contentChat={"Mai đi chơi không"} />
-                <Chat name={"Ngô Thiên Phú"} contentChat={"Mai đi chơi không"} />
-                <Chat name={"Ngô Thiên Phú"} contentChat={"Mai đi chơi không"} />
-                <Chat name={"Ngô Thiên Phú"} contentChat={"Mai đi chơi không"} />
-                <Chat name={"Ngô Thiên Phú"} contentChat={"Mai đi chơi không"} />
-                <Chat name={"Ngô Thiên Phú"} contentChat={"Mai đi chơi không"} />
+                {
+                    dataChat.map((item) => {
+                        return (
+                            <TouchableOpacity key={item.id} onPress={() => { navigation.navigate("Đoạn chat view", { name: item.name }) }} style={styles.chat}>
+                                <View style={styles.imgChat}>
+                                    <Icon name="user" size={30} color="black" />
+                                </View>
+                                <View style={styles.titleChat}>
+                                    <Text style={styles.nameChat}>{item.name}</Text>
+                                    <Text style={styles.contentChat}>{item.message}</Text>
+                                </View>
+                            </TouchableOpacity>
+                        )
+                    })
+                }
             </View>
         </View>
     )
@@ -64,9 +132,6 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: "gray"
     },
-    scrollview_listFriend: {
-        flex: 1,
-    },
     listFriend: {
         width: "100%",
         paddingTop: 20,
@@ -81,4 +146,32 @@ const styles = StyleSheet.create({
         paddingLeft: 15,
         paddingRight: 15
     },
+    chat: {
+        // borderWidth: 1,
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        overflow: 'hidden',
+        marginBottom: 15
+    },
+    imgChat: {
+        width: 55,
+        height: 55,
+        borderRadius: 60,
+        backgroundColor: "#f6f6f6",
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    titleChat: {
+        marginLeft: 10
+    },
+    nameChat: {
+        fontSize: 16,
+        marginBottom: 5
+    },
+    contentChat: {
+        fontSize: 13,
+    },
 })
+

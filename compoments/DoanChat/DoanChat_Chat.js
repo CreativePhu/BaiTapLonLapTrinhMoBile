@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 export function Chat(props) {
     return (
-        <TouchableOpacity style={styles.chat}>
+        <TouchableOpacity onPress={() => { props.navigation.navigate("Đoạn chat view", { name: props.name }) }} style={styles.chat}>
             <View style={styles.imgChat}>
                 <Icon name="user" size={30} color="black" />
             </View>

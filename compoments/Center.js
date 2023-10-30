@@ -5,21 +5,13 @@ import { DoanChatCenter } from './DoanChat/DoanChatCenter';
 import { CuocGoiCenter } from './CuocGoi/CuocGoiCenter';
 import { DanhBaCenter } from './DanhBa/DanhBaCenter';
 
-export function Center({ type }) {
+export function Center({ type, navigation }) {
     return (
-        <View style={styles.center}>
-            <ScrollView showsVerticalScrollIndicator={false}>
-                {type === 1 && <DoanChatCenter />}
-                {type === 2 && <CuocGoiCenter />}
-                {type === 3 && <DanhBaCenter />}
-                {type === 4 && <TinCenter />}
-            </ScrollView>
-        </View>
+        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
+            {type === 1 && <DoanChatCenter navigation={navigation} />}
+            {type === 2 && <CuocGoiCenter />}
+            {type === 3 && <DanhBaCenter />}
+            {type === 4 && <TinCenter />}
+        </ScrollView>
     )
 }
-
-const styles = StyleSheet.create({
-    center: {
-        // borderWidth: 1,
-    },
-})

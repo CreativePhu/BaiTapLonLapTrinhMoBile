@@ -4,8 +4,19 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { useNavigationState } from '@react-navigation/native';
 
 export function DrawerContent({ navigation }) {
+
+    const navigationState = useNavigationState(state => state);
+    const [currentTabRouteName, setCurrentTabRouteName] = React.useState("Đoạn chat")
+    const namePage = navigationState?.routes[0].state?.routes[navigationState?.routes[0].state.index].name
+
+    React.useEffect(() => {
+        if (namePage) {
+            setCurrentTabRouteName(namePage)
+        }
+    }, [namePage])
 
     const [groups, setGroups] = React.useState([
         { name: "IT TUYỂN DỤNG - TÌM VIỆC LÀM", count: 1000 },
@@ -28,7 +39,9 @@ export function DrawerContent({ navigation }) {
                     <Ionicons name="settings-sharp" size={20} color="black" />
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => { navigation.navigate('Đoạn chat') }} style={styles.contentDrawer1}>
+            <TouchableOpacity onPress={() => { navigation.navigate('Đoạn chat', { checkDrawer: "Đoạn chat" }) }}
+                style={[styles.contentDrawer1, currentTabRouteName === "Đoạn chat" ? { backgroundColor: "rgb(239 239 239)" } : {}]}
+            >
                 <View style={styles.iconCententDrawer1}>
                     <Ionicons name="chatbubble-sharp" size={25} color="black" />
                 </View>

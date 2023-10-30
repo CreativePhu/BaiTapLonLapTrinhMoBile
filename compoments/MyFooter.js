@@ -9,10 +9,12 @@ import { DoanChat } from './DoanChat/DoanChat';
 import { CuocGoi } from './CuocGoi/CuocGoi';
 import { DanhBa } from './DanhBa/DanhBa';
 import { Tin } from './Tin/Tin';
+import { DoanChatView } from './DoanChat/DoanChatView';
 
 const Tab = createBottomTabNavigator();
 
 export function MyFooter({ navigation }) {
+
     return (
         <Tab.Navigator
             screenOptions={{
@@ -150,6 +152,28 @@ export function MyFooter({ navigation }) {
                         return <MaterialCommunityIcons name="newspaper-variant" size={25} color={color} />
                     },
                     headerShown: true
+                }}
+            />
+            <Tab.Screen
+                name='Đoạn chat view'
+                component={DoanChatView}
+                options={{
+                    tabBarItemStyle: { display: "none" },
+                    headerShown: true,
+                    headerTitle: "",
+                    tabBarStyle: { display: "none" },
+                    headerLeft: () => {
+                        const styles = StyleSheet.create({
+                            coverArroundLeft: {
+                                marginLeft: 15
+                            }
+                        })
+                        return (
+                            <TouchableOpacity onPress={() => { navigation.goBack() }} style={styles.coverArroundLeft}>
+                                <FontAwesome5 name="arrow-left" size={25} color={"black"} />
+                            </TouchableOpacity>
+                        )
+                    },
                 }}
             />
         </Tab.Navigator>
