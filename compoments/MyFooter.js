@@ -161,11 +161,12 @@ export function MyFooter({ navigation }) {
                     tabBarItemStyle: { display: "none" },
                     headerShown: true,
                     headerTitle: "",
+                    headerTitleStyle: { maxWidth: 200, overflow: "hidden" },
                     tabBarStyle: { display: "none" },
                     headerLeft: () => {
                         const styles = StyleSheet.create({
                             coverArroundLeft: {
-                                marginLeft: 15
+                                marginLeft: 25
                             }
                         })
                         return (
