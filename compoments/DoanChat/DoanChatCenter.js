@@ -31,7 +31,7 @@ export function DoanChatCenter({ navigation }) {
 
     return (
         <View style={styles.contentCenter}>
-            <TouchableOpacity style={styles.search}>
+            <TouchableOpacity onPress={() => { navigation.navigate("SearchDoanChat") }} style={styles.search}>
                 <View style={styles.cover_iconSearch}>
                     <Icon name="search" size={20} color="gray" />
                 </View>

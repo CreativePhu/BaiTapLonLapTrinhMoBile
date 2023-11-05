@@ -10,6 +10,7 @@ import { CuocGoi } from './CuocGoi/CuocGoi';
 import { DanhBa } from './DanhBa/DanhBa';
 import { Tin } from './Tin/Tin';
 import { DoanChatView } from './DoanChat/DoanChatView';
+import { SearchDoanChat } from './DoanChat/SearchDoanChat';
 
 const Tab = createBottomTabNavigator();
 
@@ -157,6 +158,29 @@ export function MyFooter({ navigation }) {
             <Tab.Screen
                 name='Đoạn chat view'
                 component={DoanChatView}
+                options={{
+                    tabBarItemStyle: { display: "none" },
+                    headerShown: true,
+                    headerTitle: "",
+                    headerTitleStyle: { maxWidth: 200, overflow: "hidden" },
+                    tabBarStyle: { display: "none" },
+                    headerLeft: () => {
+                        const styles = StyleSheet.create({
+                            coverArroundLeft: {
+                                marginLeft: 25
+                            }
+                        })
+                        return (
+                            <TouchableOpacity onPress={() => { navigation.goBack() }} style={styles.coverArroundLeft}>
+                                <FontAwesome5 name="arrow-left" size={25} color={"black"} />
+                            </TouchableOpacity>
+                        )
+                    },
+                }}
+            />
+            <Tab.Screen
+                name='SearchDoanChat'
+                component={SearchDoanChat}
                 options={{
                     tabBarItemStyle: { display: "none" },
                     headerShown: true,
