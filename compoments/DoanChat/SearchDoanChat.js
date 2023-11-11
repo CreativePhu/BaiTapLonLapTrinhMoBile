@@ -15,7 +15,6 @@ export function SearchDoanChat({ navigation }) {
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
-            tabBarItemStyle: { display: "none" },
             headerShown: true,
             headerTitle: "",
             headerTitleStyle: { maxWidth: 200, overflow: "hidden" },
@@ -23,30 +22,20 @@ export function SearchDoanChat({ navigation }) {
             headerLeft: () => {
                 const styles = StyleSheet.create({
                     coverArroundLeft: {
-                        marginLeft: 25
+                        marginLeft: 15
                     }
                 })
                 return (
-                    <TouchableOpacity onPress={() => { navigation.goBack() }} style={styles.coverArroundLeft}>
-                        <FontAwesome5 name="arrow-left" size={25} color={"black"} />
-                    </TouchableOpacity>
-                )
-            },
-            headerRight: () => {
-                const styles = StyleSheet.create({
-                    textInputSearch: {
-                        width: 300,
-                        // borderWidth: 1,
-                        padding: 5,
-                        marginRight: 20
-                    }
-                })
-                return (
-                    <View>
-                        <TextInput style={styles.textInputSearch} placeholder='Tìm kiếm' />
+                    <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+                        <TouchableOpacity onPress={() => { navigation.goBack() }} style={styles.coverArroundLeft}>
+                            <FontAwesome5 name="arrow-left" size={25} color={"black"} />
+                        </TouchableOpacity>
+                        <View>
+                            <TextInput style={{ padding: 5, marginLeft: 15, width: 300, fontSize: 16 }} placeholder='Tìm kiếm' />
+                        </View>
                     </View>
                 )
-            }
+            },
         })
     })
 

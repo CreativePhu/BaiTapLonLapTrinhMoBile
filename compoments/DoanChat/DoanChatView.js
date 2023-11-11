@@ -10,7 +10,6 @@ import { TextInput } from 'react-native-gesture-handler';
 export function DoanChatView({ navigation, route }) {
     React.useLayoutEffect(() => {
         navigation.setOptions({
-            tabBarItemStyle: { display: "none" },
             headerShown: true,
             headerTitle: "",
             headerTitleStyle: { maxWidth: 200, overflow: "hidden" },
