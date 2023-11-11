@@ -10,6 +10,23 @@ import { TextInput } from 'react-native-gesture-handler';
 export function DoanChatView({ navigation, route }) {
     React.useLayoutEffect(() => {
         navigation.setOptions({
+            tabBarItemStyle: { display: "none" },
+            headerShown: true,
+            headerTitle: "",
+            headerTitleStyle: { maxWidth: 200, overflow: "hidden" },
+            tabBarStyle: { display: "none" },
+            headerLeft: () => {
+                const styles = StyleSheet.create({
+                    coverArroundLeft: {
+                        marginLeft: 25
+                    }
+                })
+                return (
+                    <TouchableOpacity onPress={() => { navigation.goBack() }} style={styles.coverArroundLeft}>
+                        <FontAwesome5 name="arrow-left" size={25} color={"black"} />
+                    </TouchableOpacity>
+                )
+            },
             headerTitle: route.params?.name,
             headerTitleStyle: { fontSize: 18 },
             headerRight: () => {

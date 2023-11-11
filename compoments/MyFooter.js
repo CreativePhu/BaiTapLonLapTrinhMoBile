@@ -11,6 +11,7 @@ import { DanhBa } from './DanhBa/DanhBa';
 import { Tin } from './Tin/Tin';
 import { DoanChatView } from './DoanChat/DoanChatView';
 import { SearchDoanChat } from './DoanChat/SearchDoanChat';
+import { PainDoanChat } from './DoanChat/PainDoanChat';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,6 +21,7 @@ export function MyFooter({ navigation }) {
         <Tab.Navigator
             screenOptions={{
                 tabBarStyle: { height: 60 },
+                tabBarItemStyle: { display: "none" },
                 tabBarLabelStyle: { fontSize: 14 },
                 headerShown: false,
                 headerLeft: () => {
@@ -55,101 +57,35 @@ export function MyFooter({ navigation }) {
                 name='Đoạn chat'
                 component={DoanChat}
                 options={{
-                    tabBarIcon: ({ color, focused, size }) => {
-                        return <Ionicons name="chatbubble-sharp" size={25} color={color} />
-                    },
-                    headerShown: true,
-                    headerRight: () => {
-                        const styles = StyleSheet.create({
-                            circle_header: {
-                                width: 35,
-                                height: 35,
-                                backgroundColor: "#f6f6f6",
-                                borderRadius: 30,
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                marginRight: 15
-                            }
-                        })
-                        return (
-                            <TouchableOpacity style={styles.circle_header}>
-                                <FontAwesome name="pencil" size={18} color="black" />
-                            </TouchableOpacity>
-                        )
-                    }
+                    tabBarItemStyle: { display: "block" },
                 }}
             />
             <Tab.Screen
                 name='Cuộc gọi'
                 component={CuocGoi}
                 options={{
-                    tabBarIcon: ({ color, focused, size }) => {
+                    tabBarItemStyle: { display: "block" },
+                    tabBarIcon: ({ color }) => {
                         return <Ionicons name="videocam" size={25} color={color} />
                     },
-                    headerShown: true,
-                    headerRight: () => {
-                        const styles = StyleSheet.create({
-                            circle_header: {
-                                width: 35,
-                                height: 35,
-                                backgroundColor: "#f6f6f6",
-                                borderRadius: 30,
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                            },
-                            header_right: {
-                                flexDirection: 'row',
-                                justifyContent: 'space-between',
-                                marginRight: 15,
-                                width: 90
-                            },
-                        })
-                        return (
-                            <View style={styles.header_right}>
-                                <TouchableOpacity style={styles.circle_header}>
-                                    <FontAwesome name="phone" size={18} color="black" />
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.circle_header}>
-                                    <FontAwesome name="video-camera" size={18} color="black" />
-                                </TouchableOpacity>
-                            </View>
-                        )
-                    }
                 }}
             />
             <Tab.Screen
                 name='Danh bạ'
                 component={DanhBa}
                 options={{
-                    tabBarIcon: ({ color, focused, size }) => {
+                    tabBarItemStyle: { display: "block" },
+                    tabBarIcon: ({ color }) => {
                         return <FontAwesome5 name="user-friends" size={25} color={color} />
                     },
-                    headerShown: true,
-                    headerRight: () => {
-                        const styles = StyleSheet.create({
-                            circle_header: {
-                                width: 35,
-                                height: 35,
-                                backgroundColor: "#f6f6f6",
-                                borderRadius: 30,
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                marginRight: 15
-                            },
-                        })
-                        return (
-                            <TouchableOpacity style={styles.circle_header}>
-                                <FontAwesome name="address-book" size={18} color="black" />
-                            </TouchableOpacity>
-                        )
-                    }
                 }}
             />
             <Tab.Screen
                 name='Tin'
                 component={Tin}
                 options={{
-                    tabBarIcon: ({ color, focused, size }) => {
+                    tabBarItemStyle: { display: "block" },
+                    tabBarIcon: ({ color }) => {
                         return <MaterialCommunityIcons name="newspaper-variant" size={25} color={color} />
                     },
                     headerShown: true
@@ -158,48 +94,14 @@ export function MyFooter({ navigation }) {
             <Tab.Screen
                 name='Đoạn chat view'
                 component={DoanChatView}
-                options={{
-                    tabBarItemStyle: { display: "none" },
-                    headerShown: true,
-                    headerTitle: "",
-                    headerTitleStyle: { maxWidth: 200, overflow: "hidden" },
-                    tabBarStyle: { display: "none" },
-                    headerLeft: () => {
-                        const styles = StyleSheet.create({
-                            coverArroundLeft: {
-                                marginLeft: 25
-                            }
-                        })
-                        return (
-                            <TouchableOpacity onPress={() => { navigation.goBack() }} style={styles.coverArroundLeft}>
-                                <FontAwesome5 name="arrow-left" size={25} color={"black"} />
-                            </TouchableOpacity>
-                        )
-                    },
-                }}
             />
             <Tab.Screen
                 name='SearchDoanChat'
                 component={SearchDoanChat}
-                options={{
-                    tabBarItemStyle: { display: "none" },
-                    headerShown: true,
-                    headerTitle: "",
-                    headerTitleStyle: { maxWidth: 200, overflow: "hidden" },
-                    tabBarStyle: { display: "none" },
-                    headerLeft: () => {
-                        const styles = StyleSheet.create({
-                            coverArroundLeft: {
-                                marginLeft: 25
-                            }
-                        })
-                        return (
-                            <TouchableOpacity onPress={() => { navigation.goBack() }} style={styles.coverArroundLeft}>
-                                <FontAwesome5 name="arrow-left" size={25} color={"black"} />
-                            </TouchableOpacity>
-                        )
-                    },
-                }}
+            />
+            <Tab.Screen
+                name='PainDoanChat'
+                component={PainDoanChat}
             />
         </Tab.Navigator>
     )
