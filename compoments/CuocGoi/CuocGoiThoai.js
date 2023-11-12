@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { ScrollView } from 'react-native';
 
 
-export function PainDoanChat({ navigation }) {
+export function CuocGoiThoai({ navigation }) {
 
     const [dataFriend, setDataFriend] = React.useState([
         { id: 1, name: "Thiên Phú", image: "" },

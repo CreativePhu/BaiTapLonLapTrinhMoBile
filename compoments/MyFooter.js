@@ -12,6 +12,10 @@ import { Tin } from './Tin/Tin';
 import { DoanChatView } from './DoanChat/DoanChatView';
 import { SearchDoanChat } from './DoanChat/SearchDoanChat';
 import { PainDoanChat } from './DoanChat/PainDoanChat';
+import { Marketplace } from './Drawer/Marketplace';
+import { KhoLuuTru } from './Drawer/KhoLuuTru';
+import { TinNhanDangCho } from './Drawer/TinNhanDangCho';
+import { CuocGoiThoai } from './CuocGoi/CuocGoiThoai';
 
 const Tab = createBottomTabNavigator();
 
@@ -102,6 +106,22 @@ export function MyFooter({ navigation }) {
             <Tab.Screen
                 name='PainDoanChat'
                 component={PainDoanChat}
+            />
+            <Tab.Screen
+                name='Marketplace'
+                component={Marketplace}
+            />
+            <Tab.Screen
+                name='KhoLuuTru'
+                component={KhoLuuTru}
+            />
+            <Tab.Screen
+                name='TinNhanDangCho'
+                component={TinNhanDangCho}
+            />
+            <Tab.Screen
+                name='CuocGoiThoai'
+                component={CuocGoiThoai}
             />
         </Tab.Navigator>
     )

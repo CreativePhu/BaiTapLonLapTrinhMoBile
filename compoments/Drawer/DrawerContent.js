@@ -47,19 +47,25 @@ export function DrawerContent({ navigation }) {
                 </View>
                 <Text style={styles.textAccountDrawer1}>Đoạn chat</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.contentDrawer1}>
+            <TouchableOpacity onPress={() => { navigation.navigate("TinNhanDangCho") }}
+                style={[styles.contentDrawer1, currentTabRouteName === "TinNhanDangCho" ? { backgroundColor: "rgb(239 239 239)" } : {}]}
+            >
                 <View style={styles.iconCententDrawer1}>
                     <Ionicons name="chatbubble-ellipses-sharp" size={25} color="black" />
                 </View>
                 <Text style={styles.textAccountDrawer1}>Tin nhắn đang chờ</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.contentDrawer1}>
+            <TouchableOpacity onPress={() => { navigation.navigate("Marketplace") }}
+                style={[styles.contentDrawer1, currentTabRouteName === "Marketplace" ? { backgroundColor: "rgb(239 239 239)" } : {}]}
+            >
                 <View style={styles.iconCententDrawer1}>
                     <MaterialIcons name="store" size={25} color="black" />
                 </View>
                 <Text style={styles.textAccountDrawer1}>Marketplace</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.contentDrawer1}>
+            <TouchableOpacity onPress={() => { navigation.navigate("KhoLuuTru") }}
+                style={[styles.contentDrawer1, currentTabRouteName === "KhoLuuTru" ? { backgroundColor: "rgb(239 239 239)" } : {}]}
+            >
                 <View style={styles.iconCententDrawer1}>
                     <FontAwesome5 name="warehouse" size={15} color="black" />
                 </View>
