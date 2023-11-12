@@ -28,7 +28,7 @@ export function SearchDoanChat({ navigation }) {
                 return (
                     <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
                         <TouchableOpacity onPress={() => { navigation.goBack() }} style={styles.coverArroundLeft}>
-                            <FontAwesome5 name="arrow-left" size={25} color={"black"} />
+                            <FontAwesome5 name="arrow-left" size={20} color={"black"} />
                         </TouchableOpacity>
                         <View>
                             <TextInput style={{ padding: 5, marginLeft: 15, width: 300, fontSize: 16 }} placeholder='Tìm kiếm' />

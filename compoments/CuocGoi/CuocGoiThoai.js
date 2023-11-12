@@ -1,5 +1,4 @@
 import React from 'react'
-import { FlatList } from 'react-native';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -30,13 +29,13 @@ export function CuocGoiThoai({ navigation }) {
                 return (
                     <View style={{ marginLeft: 15 }}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <TouchableOpacity onPress={() => { navigation.goBack() }}>
-                                <FontAwesome5 name="arrow-left" size={25} color={"black"} />
+                            <TouchableOpacity onPress={() => { navigation.navigate("Cuộc gọi") }}>
+                                <FontAwesome5 name="arrow-left" size={20} color={"black"} />
                             </TouchableOpacity>
-                            <Text style={{ fontSize: 18, marginLeft: 20 }}>Đoạn chat mới</Text>
+                            <Text style={{ fontSize: 18, marginLeft: 20 }}>Bắt đầu cuộc gọi thoại</Text>
                         </View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 5 }}>
-                            <Text style={{ fontSize: 16, color: "#ccc", marginRight: 5 }}>Đến:</Text>
+                            <Text style={{ fontSize: 16, color: "#ccc", marginRight: 5 }}>Với:</Text>
                             <TextInput style={{ fontSize: 16, padding: 10, width: 300 }} placeholder='Hãy nhập tên hoặc nhóm' />
                         </View>
                     </View>
@@ -49,9 +48,8 @@ export function CuocGoiThoai({ navigation }) {
         <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, backgroundColor: "#fff" }}>
             <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', width: "100%", padding: 15 }}>
                 <FontAwesome5 name="user-friends" size={25} />
-                <Text style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 15 }}>Nhóm chat</Text>
+                <Text style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 15 }}>Bắt đầu cuộc gọi video nhóm mới</Text>
             </TouchableOpacity>
-            <Text style={{ fontSize: 16, fontWeight: "bold", color: "#ccc", paddingLeft: 15 }}>Gợi ý</Text>
             <View style={{ padding: 15 }}>
                 {
                     dataFriend.map((item) => {

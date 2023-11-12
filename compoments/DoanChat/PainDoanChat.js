@@ -31,7 +31,7 @@ export function PainDoanChat({ navigation }) {
                     <View style={{ marginLeft: 15 }}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <TouchableOpacity onPress={() => { navigation.goBack() }}>
-                                <FontAwesome5 name="arrow-left" size={25} color={"black"} />
+                                <FontAwesome5 name="arrow-left" size={20} color={"black"} />
                             </TouchableOpacity>
                             <Text style={{ fontSize: 18, marginLeft: 20 }}>Đoạn chat mới</Text>
                         </View>
