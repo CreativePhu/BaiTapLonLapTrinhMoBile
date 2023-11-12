@@ -16,6 +16,7 @@ import { Marketplace } from './Drawer/Marketplace';
 import { KhoLuuTru } from './Drawer/KhoLuuTru';
 import { TinNhanDangCho } from './Drawer/TinNhanDangCho';
 import { CuocGoiThoai } from './CuocGoi/CuocGoiThoai';
+import { CuocGoiVideo } from './CuocGoi/CuocGoiVideo';
 
 const Tab = createBottomTabNavigator();
 
@@ -122,6 +123,10 @@ export function MyFooter({ navigation }) {
             <Tab.Screen
                 name='CuocGoiThoai'
                 component={CuocGoiThoai}
+            />
+            <Tab.Screen
+                name='CuocGoiVideo'
+                component={CuocGoiVideo}
             />
         </Tab.Navigator>
     )

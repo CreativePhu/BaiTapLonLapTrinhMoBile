@@ -31,7 +31,7 @@ export function CuocGoi({ navigation }) {
                         <TouchableOpacity onPress={() => { navigation.navigate("CuocGoiThoai") }} style={styles.circle_header}>
                             <FontAwesome name="phone" size={18} color="black" />
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.circle_header}>
+                        <TouchableOpacity onPress={() => { navigation.navigate("CuocGoiVideo") }} style={styles.circle_header}>
                             <FontAwesome name="video-camera" size={18} color="black" />
                         </TouchableOpacity>
                     </View>

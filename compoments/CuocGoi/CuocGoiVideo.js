@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { ScrollView } from 'react-native';
 
 
-export function CuocGoiThoai({ navigation }) {
+export function CuocGoiVideo({ navigation }) {
 
     const [dataFriend, setDataFriend] = React.useState([
         { id: 1, name: "Thiên Phú", image: "" },
@@ -32,7 +32,7 @@ export function CuocGoiThoai({ navigation }) {
                             <TouchableOpacity onPress={() => { navigation.navigate("Cuộc gọi") }}>
                                 <FontAwesome5 name="arrow-left" size={20} color={"black"} />
                             </TouchableOpacity>
-                            <Text style={{ fontSize: 18, marginLeft: 20 }}>Bắt đầu cuộc gọi thoại</Text>
+                            <Text style={{ fontSize: 18, marginLeft: 20 }}>Bắt đầu cuộc gọi video</Text>
                         </View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 5 }}>
                             <Text style={{ fontSize: 16, color: "#ccc", marginRight: 5 }}>Với:</Text>
@@ -48,7 +48,7 @@ export function CuocGoiThoai({ navigation }) {
         <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, backgroundColor: "#fff" }}>
             <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', width: "100%", padding: 15 }}>
                 <FontAwesome5 name="user-friends" size={25} />
-                <Text style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 15 }}>Bắt đầu cuộc gọi thoại nhóm mới</Text>
+                <Text style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 15 }}>Bắt đầu cuộc gọi video nhóm mới</Text>
             </TouchableOpacity>
             <View style={{ padding: 15 }}>
                 {
