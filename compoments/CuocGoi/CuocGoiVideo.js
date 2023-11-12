@@ -2,6 +2,10 @@ import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+
 import { ScrollView } from 'react-native';
 
 
@@ -18,6 +22,11 @@ export function CuocGoiVideo({ navigation }) {
         { id: 8, name: "Thiên Phú", image: "" },
         { id: 9, name: "Thiên Phú", image: "" },
         { id: 10, name: "Thiên Phú", image: "" },
+        { id: 11, name: "Thiên Phú", image: "" },
+        { id: 12, name: "Thiên Phú", image: "" },
+        { id: 13, name: "Thiên Phú", image: "" },
+        { id: 14, name: "Thiên Phú", image: "" },
+        { id: 15, name: "Thiên Phú", image: "" },
     ])
 
     React.useLayoutEffect(() => {
@@ -47,10 +56,10 @@ export function CuocGoiVideo({ navigation }) {
     return (
         <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, backgroundColor: "#fff" }}>
             <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', width: "100%", padding: 15 }}>
-                <FontAwesome5 name="user-friends" size={25} />
+                <MaterialIcons name="groups" size={30} />
                 <Text style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 15 }}>Bắt đầu cuộc gọi video nhóm mới</Text>
             </TouchableOpacity>
-            <View style={{ padding: 15 }}>
+            <ScrollView style={{ padding: 15 }} showsVerticalScrollIndicator={false}>
                 {
                     dataFriend.map((item) => {
                         return (
@@ -58,12 +67,17 @@ export function CuocGoiVideo({ navigation }) {
                                 <View style={{ width: 45, height: 45, borderRadius: 30, backgroundColor: "#f6f6f6", justifyContent: 'center', alignItems: 'center' }}>
                                     <Icon name="user" size={25} color="black" />
                                 </View>
-                                <Text style={{ marginLeft: 15, fontSize: 16, fontWeight: '600' }}>{item.name}</Text>
+                                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <Text style={{ marginLeft: 15, fontSize: 16, fontWeight: '600' }}>{item.name}</Text>
+                                    <View style={{ width: 35, height: 35, justifyContent: 'center', alignItems: 'center', borderRadius: 20, backgroundColor: "#f6f6f6" }}>
+                                        <Ionicons name="videocam" size={15} color="black" />
+                                    </View>
+                                </View>
                             </TouchableOpacity>
                         )
                     })
                 }
-            </View>
+            </ScrollView>
         </ScrollView>
     )
 }
