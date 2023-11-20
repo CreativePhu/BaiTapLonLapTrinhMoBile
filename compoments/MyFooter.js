@@ -17,6 +17,7 @@ import { KhoLuuTru } from './Drawer/KhoLuuTru';
 import { TinNhanDangCho } from './Drawer/TinNhanDangCho';
 import { CuocGoiThoai } from './CuocGoi/CuocGoiThoai';
 import { CuocGoiVideo } from './CuocGoi/CuocGoiVideo';
+import { FormLogin } from './FormLogin';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,6 +25,7 @@ export function MyFooter({ navigation }) {
 
     return (
         <Tab.Navigator
+            initialRouteName="FormLogin"
             screenOptions={{
                 tabBarStyle: { height: 60 },
                 tabBarItemStyle: { display: "none" },
@@ -63,6 +65,9 @@ export function MyFooter({ navigation }) {
                 component={DoanChat}
                 options={{
                     tabBarItemStyle: { display: "block" },
+                    tabBarIcon: ({ color }) => {
+                        return <Ionicons name="chatbubble-sharp" size={25} color={color} />
+                    },
                 }}
             />
             <Tab.Screen
@@ -127,6 +132,13 @@ export function MyFooter({ navigation }) {
             <Tab.Screen
                 name='CuocGoiVideo'
                 component={CuocGoiVideo}
+            />
+            <Tab.Screen
+                name='FormLogin'
+                component={FormLogin}
+                options={{
+                    tabBarStyle: { display: "none" }
+                }}
             />
         </Tab.Navigator>
     )

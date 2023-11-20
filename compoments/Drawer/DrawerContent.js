@@ -5,12 +5,14 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useNavigationState } from '@react-navigation/native';
+import { ThemeContext } from './Drawer';
 
 export function DrawerContent({ navigation }) {
 
     const navigationState = useNavigationState(state => state);
     const [currentTabRouteName, setCurrentTabRouteName] = React.useState("Đoạn chat")
     const namePage = navigationState?.routes[0].state?.routes[navigationState?.routes[0].state.index].name
+    const { myUser } = React.useContext(ThemeContext)
 
     React.useEffect(() => {
         if (namePage) {
@@ -32,7 +34,7 @@ export function DrawerContent({ navigation }) {
                     <View style={styles.imgAccount}>
                         <FontAwesome name="user" size={25} color="black" />
                     </View>
-                    <Text style={styles.nameAccount}>Thiên Phú</Text>
+                    <Text style={styles.nameAccount}>{myUser.username}</Text>
                     <FontAwesome name="angle-down" size={30} color="black" />
                 </View>
                 <View style={styles.settingAccount}>

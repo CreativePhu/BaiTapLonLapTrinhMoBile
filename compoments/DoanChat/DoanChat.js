@@ -8,9 +8,6 @@ export function DoanChat({ navigation }) {
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
-            tabBarIcon: ({ color }) => {
-                return <Ionicons name="chatbubble-sharp" size={25} color={color} />
-            },
             headerShown: true,
             headerRight: () => {
                 const styles = StyleSheet.create({
