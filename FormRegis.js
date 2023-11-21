@@ -13,7 +13,6 @@ export function FormRegis({ navigation }) {
     const [againPassword, setAgainPassword] = React.useState("")
     const [name, setName] = React.useState("")
     const [image, setImage] = React.useState(null)
-    const [imageBase64, setImageBase64] = React.useState(null)
 
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -34,24 +33,31 @@ export function FormRegis({ navigation }) {
         setAgainPassword("")
         setName("")
         setImage(null)
-        setImageBase64(null)
-
     }
 
     function Regis() {
         if (username && password && againPassword && name && (password === againPassword)) {
-            fetch(image)
-                .then((response) => response.blob())
-                .then((blob) => {
-                    const reader = new FileReader();
-                    reader.onload = () => {
-                        const base64String = reader.result.split(',')[1];
-                        setImageBase64("data:image/jpeg;base64," + base64String)
-                    };
-                    reader.readAsDataURL(blob);
+            let promise = new Promise(
+                function (resole) {
+                    fetch(image)
+                        .then((response) => response.blob())
+                        .then((blob) => {
+                            const reader = new FileReader();
+                            reader.onload = () => {
+                                const base64String = reader.result.split(',')[1];
+                                resole("data:image/jpeg;base64," + base64String)
+                            };
+                            reader.readAsDataURL(blob);
+                        })
+                        .catch((error) => console.log('Error reading file:', error));
+                }
+            )
+
+            promise
+                .then((data) => {
                     const url = "http://10.0.2.2:8080/v1/users/addUser"
-                    const account = { username: username, password: password, image: imageBase64, name: name }
-                    return fetch(url, {
+                    const account = { username: username, password: password, image: data, name: name }
+                    fetch(url, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -67,9 +73,7 @@ export function FormRegis({ navigation }) {
                         .catch((result) => {
                             alert("Tạo tài khoản thất bại")
                         })
-
                 })
-                .catch((error) => console.log('Error reading file:', error));
 
         } else {
             alert("Vui lòng nhập đủ thông tin chính xác")
