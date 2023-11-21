@@ -3,11 +3,13 @@ import { Keyboard } from 'react-native'
 import { TextInput } from 'react-native'
 import { View, Text, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import { ThemeContext } from '../store/myStore'
 
 export function FormLogin({ navigation }) {
 
     const [username, setUsername] = React.useState("")
     const [password, setPassword] = React.useState("")
+    const { setData } = React.useContext(ThemeContext)
 
     function login() {
         if (username && password) {
@@ -22,8 +24,21 @@ export function FormLogin({ navigation }) {
             })
                 .then((result) => {
                     if (result.ok) {
-                        navigation.navigate("MyFooter")
-                        Keyboard.dismiss()
+                        const url = "http://10.0.2.2:8080/v1/users/" + username
+                        fetch(url, {
+                            method: "GET"
+                        })
+                            .then(data => data.json())
+                            .then((result) => {
+                                setData(result)
+                                navigation.navigate("MyFooter")
+                                Keyboard.dismiss()
+                            })
+                            .catch(() => {
+                                alert("Không thể lấy dữ liệu người dùng !")
+                                setUsername("")
+                                setPassword("")
+                            })
                     } else {
                         alert("Đăng nhập thất bại !")
                         setUsername("")
@@ -64,6 +79,12 @@ export function FormLogin({ navigation }) {
             <View style={{ width: "100%", marginTop: 20 }}>
                 <TouchableOpacity onPress={() => { login() }} style={{ borderWidth: 1, marginLeft: 50, marginRight: 50, padding: 10, borderRadius: 10 }}>
                     <Text style={{ textAlign: 'center', fontSize: 14, fontWeight: 'bold' }}>Đăng Nhập</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={{ marginTop: 20, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                <Text>Chưa có tài khoản </Text>
+                <TouchableOpacity onPress={() => { navigation.navigate("FormRegis") }}>
+                    <Text style={{ fontWeight: 'bold', color: "blue" }}>đăng kí</Text>
                 </TouchableOpacity>
             </View>
         </View>

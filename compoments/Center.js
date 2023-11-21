@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, ScrollView } from 'react-native'
+import { ScrollView } from 'react-native'
 import { TinCenter } from './Tin/TinCenter';
 import { DoanChatCenter } from './DoanChat/DoanChatCenter';
 import { CuocGoiCenter } from './CuocGoi/CuocGoiCenter';

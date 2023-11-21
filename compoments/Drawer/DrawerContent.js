@@ -1,16 +1,19 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useNavigationState } from '@react-navigation/native';
+import { ThemeContext } from '../../store/myStore';
 
-export function DrawerContent({ navigation }) {
+export default function DrawerContent({ navigation }) {
+
 
     const navigationState = useNavigationState(state => state);
     const [currentTabRouteName, setCurrentTabRouteName] = React.useState("Đoạn chat")
     const namePage = navigationState?.routes[0].state?.routes[navigationState?.routes[0].state.index].name
+    const { data } = React.useContext(ThemeContext)
 
     React.useEffect(() => {
         if (namePage) {
@@ -30,9 +33,10 @@ export function DrawerContent({ navigation }) {
             <TouchableOpacity style={styles.accountSetting}>
                 <View style={styles.account}>
                     <View style={styles.imgAccount}>
-                        <FontAwesome name="user" size={25} color="black" />
+                        {/* <FontAwesome name="user" size={25} color="black" /> */}
+                        <Image style={{ width: "100%", height: "100%", borderRadius: 30 }} source={{ uri: data.image }} />
                     </View>
-                    <Text style={styles.nameAccount}>Hello</Text>
+                    <Text style={styles.nameAccount}>{data.name}</Text>
                     <FontAwesome name="angle-down" size={30} color="black" />
                 </View>
                 <View style={styles.settingAccount}>
@@ -122,7 +126,7 @@ const styles = StyleSheet.create({
         width: 35,
         height: 35,
         backgroundColor: "#f6f6f6",
-        borderWidth: 1,
+        // borderWidth: 1,
         borderRadius: 30,
         justifyContent: 'center',
         alignItems: 'center'
