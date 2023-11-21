@@ -3,13 +3,11 @@ import { Keyboard } from 'react-native'
 import { TextInput } from 'react-native'
 import { View, Text, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { ThemeContext } from './Drawer/Drawer'
 
 export function FormLogin({ navigation }) {
 
     const [username, setUsername] = React.useState("")
     const [password, setPassword] = React.useState("")
-    const { setMyUser } = React.useContext(ThemeContext)
 
     function login() {
         if (username && password) {
@@ -24,9 +22,8 @@ export function FormLogin({ navigation }) {
             })
                 .then((result) => {
                     if (result.ok) {
-                        navigation.navigate("Đoạn chat")
+                        navigation.navigate("MyFooter")
                         Keyboard.dismiss()
-                        setMyUser(account)
                     } else {
                         alert("Đăng nhập thất bại !")
                         setUsername("")
