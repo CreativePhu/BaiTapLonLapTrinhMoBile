@@ -1,19 +1,14 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity, ScrollView, StyleSheet, FlatList } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { ThemeContext } from '../../store/myStore';
+import { useFocusEffect } from '@react-navigation/native';
 
 export function DoanChatCenter({ navigation }) {
 
-    const [dataChatFriend, setDataChatFriend] = React.useState([
-        { id: 1, name: "Ngô Thị Diễm Quỳnh", image: "" },
-        { id: 2, name: "Ngô Thị Diễm Quỳnh", image: "" },
-        { id: 3, name: "Ngô Thị Diễm Quỳnh", image: "" },
-        { id: 4, name: "Ngô Thị Diễm Quỳnh", image: "" },
-        { id: 5, name: "Ngô Thị Diễm Quỳnh", image: "" },
-        { id: 6, name: "Ngô Thị Diễm Quỳnh", image: "" },
-        { id: 7, name: "Ngô Thị Diễm Quỳnh", image: "" },
-        { id: 8, name: "Ngô Thị Diễm Quỳnh", image: "" },
-    ])
+    const { data } = React.useContext(ThemeContext)
+
+    const [dataChatFriend, setDataChatFriend] = React.useState([])
 
     const [dataChat, setDataChat] = React.useState([
         { id: 1, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
@@ -27,6 +22,30 @@ export function DoanChatCenter({ navigation }) {
         { id: 9, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
         { id: 10, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
     ])
+
+    useFocusEffect(
+        React.useCallback(() => {
+            const url = "http://10.0.2.2:8080/v1/friends/" + data.username;
+            fetch(url, {
+                method: "GET"
+            })
+                .then(data => data.json())
+                .then((reuslt) => {
+                    setDataChatFriend(reuslt)
+                })
+        }, [])
+    );
+
+    React.useLayoutEffect(() => {
+        const url = "http://10.0.2.2:8080/v1/friends/" + data.username;
+        fetch(url, {
+            method: "GET"
+        })
+            .then(data => data.json())
+            .then((reuslt) => {
+                setDataChatFriend(reuslt)
+            })
+    }, [])
 
 
     return (
@@ -69,20 +88,22 @@ export function DoanChatCenter({ navigation }) {
                                 width: "100%",
                                 maxHeight: 40,
                                 overflow: 'hidden',
-                                paddingTop: 5
+                                paddingTop: 5,
+                                textAlign: 'center'
                             },
                         })
                         return (
                             <TouchableOpacity style={styles.friend}>
                                 <View style={styles.avt_friend}>
-                                    <Icon name="user" size={30} color="black" />
+                                    {/* <Icon name="user" size={30} color="black" /> */}
+                                    <Image style={{ width: "100%", height: "100%", borderRadius: 30 }} source={{ uri: item.image }} />
                                 </View>
                                 <Text style={styles.name_friend}>{item.name}</Text>
                             </TouchableOpacity>
                         )
                     }}
                     extraData={dataChatFriend}
-                    keyExtractor={(item) => (item.id)}
+                    keyExtractor={(item) => (item.username)}
                 />
             </View>
             <View style={styles.listChat}>

@@ -3,7 +3,7 @@ import { TextInput } from 'react-native';
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import * as ImagePicker from 'expo-image-picker';
-import { ScrollView } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 
 
 export function FormRegis({ navigation }) {
@@ -26,6 +26,12 @@ export function FormRegis({ navigation }) {
             setImage(result.assets[0].uri);
         }
     };
+
+    useFocusEffect(
+        React.useCallback(() => {
+            ressetData()
+        }, [])
+    );
 
     function ressetData() {
         setUsername("")
@@ -68,10 +74,9 @@ export function FormRegis({ navigation }) {
                             if (result.ok) {
                                 alert("Tạo tài khoản thành công")
                                 navigation.navigate("FormLogin")
+                            } else {
+                                alert("Tạo tài khoản thất bại")
                             }
-                        })
-                        .catch((result) => {
-                            alert("Tạo tài khoản thất bại")
                         })
                 })
 
@@ -132,7 +137,7 @@ export function FormRegis({ navigation }) {
             </View>
             <View style={{ width: "100%", paddingLeft: 60, paddingRight: 50, marginBottom: 20, flexDirection: 'row', alignItems: 'center' }}>
                 <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Ảnh đại diện:</Text>
-                <TouchableOpacity onPress={pickImage} style={{ width: 100, height: 30, borderRadius: 20, justifyContent: 'center', alignItems: 'center', marginLeft: 15, backgroundColor: "#ff9ff3" }}>
+                <TouchableOpacity onPress={pickImage} style={{ width: 100, height: 30, borderRadius: 20, justifyContent: 'center', alignItems: 'center', marginLeft: 15, backgroundColor: "#6c5ce7" }}>
                     <Text style={{ color: "#ffffff" }}>Chọn ảnh</Text>
                 </TouchableOpacity>
                 {

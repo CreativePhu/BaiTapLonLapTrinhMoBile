@@ -4,12 +4,20 @@ import { TextInput } from 'react-native'
 import { View, Text, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { ThemeContext } from '../store/myStore'
+import { useFocusEffect } from '@react-navigation/native';
 
 export function FormLogin({ navigation }) {
 
     const [username, setUsername] = React.useState("")
     const [password, setPassword] = React.useState("")
     const { setData } = React.useContext(ThemeContext)
+
+    useFocusEffect(
+        React.useCallback(() => {
+            setUsername("")
+            setPassword("")
+        }, [])
+    );
 
     function login() {
         if (username && password) {
@@ -24,7 +32,7 @@ export function FormLogin({ navigation }) {
             })
                 .then((result) => {
                     if (result.ok) {
-                        const url = "http://10.0.2.2:8080/v1/users/" + username
+                        const url = "http://10.0.2.2:8080/v1/users/username/" + username
                         fetch(url, {
                             method: "GET"
                         })
