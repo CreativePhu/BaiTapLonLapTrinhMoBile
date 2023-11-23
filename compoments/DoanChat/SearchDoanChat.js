@@ -12,9 +12,35 @@ export function SearchDoanChat({ navigation }) {
 
     const [name, setName] = React.useState("")
 
-    const [dataFriend, setDataFriend] = React.useState([])
+    const [dataUser, setDataUser] = React.useState([])
+
+    const [listFriend, setListFriend] = React.useState([])
 
     const { data } = React.useContext(ThemeContext)
+
+    const [render, setRender] = React.useState(false)
+
+    function checkIsFriend(item) {
+        let check = false;
+        listFriend.forEach(element => {
+            if (element.username === item.username) {
+                check = true;
+            }
+        })
+        if (check) {
+            return (
+                <TouchableOpacity onPress={() => { }} style={{ padding: 5, backgroundColor: "#eb4d4b" }}>
+                    <Text style={{ color: "#ffffff", fontWeight: 'bold' }}>Hủy kết bạn</Text>
+                </TouchableOpacity>
+            )
+        } else {
+            return (
+                <TouchableOpacity onPress={() => { addFriend(item.username) }} style={{ padding: 5, backgroundColor: "#00a8ff" }}>
+                    <Text style={{ color: "#ffffff", fontWeight: 'bold' }}> Kết bạn </Text>
+                </TouchableOpacity>
+            )
+        }
+    }
 
     React.useLayoutEffect(() => {
         const url = "http://10.0.2.2:8080/v1/users/name/" + name + "/username/" + data.username;
@@ -23,9 +49,20 @@ export function SearchDoanChat({ navigation }) {
         })
             .then(data => data.json())
             .then((reuslt) => {
-                setDataFriend(reuslt)
+                setDataUser(reuslt)
             })
-    }, [name])
+    }, [name, render])
+
+    React.useLayoutEffect(() => {
+        const url = "http://10.0.2.2:8080/v1/friends/" + data.username;
+        fetch(url, {
+            method: "GET"
+        })
+            .then(data => data.json())
+            .then((reuslt) => {
+                setListFriend(reuslt)
+            })
+    }, [data, render])
 
     function addFriend(username) {
         const url = "http://10.0.2.2:8080/v1/users/addfriend/" + username + "/user/" + data.username
@@ -38,6 +75,7 @@ export function SearchDoanChat({ navigation }) {
             .then((result) => {
                 if (result.ok) {
                     alert("Thên bạn thành công")
+                    setRender(!render)
                 } else {
                     alert("Thên bạn thành thất bại")
                 }
@@ -61,7 +99,7 @@ export function SearchDoanChat({ navigation }) {
                 })
                 return (
                     <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
-                        <TouchableOpacity onPress={() => { navigation.goBack() }} style={styles.coverArroundLeft}>
+                        <TouchableOpacity onPress={() => { navigation.goBack(), setName("") }} style={styles.coverArroundLeft}>
                             <FontAwesome5 name="arrow-left" size={20} color={"black"} />
                         </TouchableOpacity>
                         <View>
@@ -79,7 +117,7 @@ export function SearchDoanChat({ navigation }) {
             <Text style={styles.title}>Gợi ý</Text>
             <View>
                 <FlatList
-                    data={dataFriend}
+                    data={dataUser}
                     renderItem={({ item }) => {
                         return (
                             <TouchableOpacity style={styles.friend}>
@@ -90,13 +128,13 @@ export function SearchDoanChat({ navigation }) {
                                     </View>
                                     <Text style={styles.nameFriend}>{item.name}</Text>
                                 </View>
-                                <TouchableOpacity onPress={() => { addFriend(item.username) }} style={{ padding: 5, backgroundColor: "#00a8ff" }}>
-                                    <Text style={{ color: "#ffffff", fontWeight: 'bold' }}>Kết bạn</Text>
-                                </TouchableOpacity>
+                                {
+                                    checkIsFriend(item)
+                                }
                             </TouchableOpacity>
                         )
                     }}
-                    extraData={dataFriend}
+                    extraData={dataUser}
                     keyExtractor={(item) => (item.username)}
                 />
             </View>
