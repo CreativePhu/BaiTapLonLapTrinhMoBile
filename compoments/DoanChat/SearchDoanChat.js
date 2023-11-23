@@ -29,7 +29,7 @@ export function SearchDoanChat({ navigation }) {
         })
         if (check) {
             return (
-                <TouchableOpacity onPress={() => { }} style={{ padding: 5, backgroundColor: "#eb4d4b" }}>
+                <TouchableOpacity onPress={() => { deleteFriend(item.username) }} style={{ padding: 5, backgroundColor: "#eb4d4b" }}>
                     <Text style={{ color: "#ffffff", fontWeight: 'bold' }}>Hủy kết bạn</Text>
                 </TouchableOpacity>
             )
@@ -77,7 +77,25 @@ export function SearchDoanChat({ navigation }) {
                     alert("Thên bạn thành công")
                     setRender(!render)
                 } else {
-                    alert("Thên bạn thành thất bại")
+                    alert("Thên bạn thất bại")
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+    function deleteFriend(username) {
+        const url = "http://10.0.2.2:8080/v1/users/deletefriend/" + username + "/user/" + data.username
+        fetch(url, {
+            method: "DELETE",
+        })
+            .then((result) => {
+                if (result.ok) {
+                    alert("Xóa bạn thành công")
+                    setRender(!render)
+                } else {
+                    alert("Xóa bạn thất bại")
                 }
             })
             .catch((error) => {
@@ -124,13 +142,16 @@ export function SearchDoanChat({ navigation }) {
                                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                                     <View style={styles.imgFriend}>
                                         {/* <Icon name="user" size={25} color="black" /> */}
-                                        <Image style={{ width: "100%", height: "100%", borderRadius: 30 }} source={{ uri: item.image }} />
+                                        <Image style={{ width: "100%", height: "100%", borderRadius: 30 }} source={{ uri: item?.image }} />
                                     </View>
                                     <Text style={styles.nameFriend}>{item.name}</Text>
                                 </View>
                                 {
                                     checkIsFriend(item)
                                 }
+                                <TouchableOpacity onPress={() => { navigation.navigate("Đoạn chat view", { data: { name: item.name, usernamereceive: item.username, usernamesender: data.username } }) }} style={{ padding: 5, backgroundColor: "#fed330" }}>
+                                    <Text style={{ color: "#ffffff", fontWeight: 'bold' }}> Trò chuyện </Text>
+                                </TouchableOpacity>
                             </TouchableOpacity>
                         )
                     }}

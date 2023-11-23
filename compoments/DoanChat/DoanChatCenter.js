@@ -10,18 +10,7 @@ export function DoanChatCenter({ navigation }) {
 
     const [dataChatFriend, setDataChatFriend] = React.useState([])
 
-    const [dataChat, setDataChat] = React.useState([
-        { id: 1, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
-        { id: 2, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
-        { id: 3, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
-        { id: 4, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
-        { id: 5, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
-        { id: 6, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
-        { id: 7, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
-        { id: 8, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
-        { id: 9, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
-        { id: 10, name: "Ngô Thị Diễm Quỳnh", image: "", message: "Mai đi chơi không" },
-    ])
+    const [dataChat, setDataChat] = React.useState([])
 
     useFocusEffect(
         React.useCallback(() => {
@@ -44,6 +33,17 @@ export function DoanChatCenter({ navigation }) {
             .then(data => data.json())
             .then((reuslt) => {
                 setDataChatFriend(reuslt)
+            })
+    }, [])
+
+    React.useLayoutEffect(() => {
+        const url = "http://10.0.2.2:8080/v1/chats/select/user1/" + data.username;
+        fetch(url, {
+            method: "GET"
+        })
+            .then(data => data.json())
+            .then((reuslt) => {
+                setDataChat(reuslt)
             })
     }, [])
 
@@ -109,14 +109,23 @@ export function DoanChatCenter({ navigation }) {
             <View style={styles.listChat}>
                 {
                     dataChat.map((item) => {
+                        let users = null;
+                        item.users.forEach(element => {
+                            if (element?.username !== data.username) {
+                                users = element;
+                            }
+                        });
                         return (
-                            <TouchableOpacity key={item.id} onPress={() => { navigation.navigate("Đoạn chat view", { name: item.name }) }} style={styles.chat}>
+                            <TouchableOpacity key={item.id} onPress={() => { navigation.navigate("Đoạn chat view", { data: { name: users?.name, usernamereceive: users?.username, usernamesender: data.username } }) }} style={styles.chat}>
                                 <View style={styles.imgChat}>
-                                    <Icon name="user" size={30} color="black" />
+                                    {/* <Icon name="user" size={30} color="black" /> */}
+                                    <Image resizeMode='contain' style={{ width: "100%", height: "100%", borderRadius: 30 }} source={{ uri: users?.image }} />
                                 </View>
                                 <View style={styles.titleChat}>
-                                    <Text style={styles.nameChat}>{item.name}</Text>
-                                    <Text style={styles.contentChat}>{item.message}</Text>
+                                    <Text style={styles.nameChat}>{users?.name}</Text>
+                                    {
+                                        <Text style={styles.contentChat}>Xin Chao</Text>
+                                    }
                                 </View>
                             </TouchableOpacity>
                         )

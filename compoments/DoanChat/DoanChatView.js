@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, FlatList } from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -8,6 +8,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { TextInput } from 'react-native-gesture-handler';
 
 export function DoanChatView({ navigation, route }) {
+
     React.useLayoutEffect(() => {
         navigation.setOptions({
             headerShown: true,
@@ -26,7 +27,7 @@ export function DoanChatView({ navigation, route }) {
                     </TouchableOpacity>
                 )
             },
-            headerTitle: route.params?.name,
+            headerTitle: route.params?.data?.name,
             headerTitleStyle: { fontSize: 18 },
             headerRight: () => {
                 return (
@@ -46,11 +47,46 @@ export function DoanChatView({ navigation, route }) {
         })
     })
 
+    const [message, setmessage] = React.useState("")
+    const [listMessage, setListMessage] = React.useState("")
+
+    function sendMessage() {
+        const url = `http://10.0.2.2:8080/v1/messages/addmesssage/${message}/receive/${route.params?.data?.usernamereceive}/sender/${route.params?.data?.usernamesender}`
+        fetch(url, {
+            method: "POST"
+        })
+            .then((result) => {
+                if (result.ok) {
+                    alert("Gửi thành công !")
+                } else {
+                    alert("Fail")
+                }
+            })
+    }
+
+    React.useLayoutEffect(() => {
+        const url = `http://10.0.2.2:8080/v1/messages/select/1`
+        fetch(url, {
+            method: "GET"
+        })
+            .then(result => result.json())
+            .then((data) => {
+                setListMessage(data)
+            })
+    }, [])
+
     return (
         <View style={styles.container}>
-            <ScrollView style={styles.chat}>
-
-            </ScrollView>
+            <View style={styles.chat}>
+                <FlatList
+                    style={{ flex: 1 }}
+                    data={listMessage}
+                    renderItem={({ item }) => {
+                        return <Text>{item.content}</Text>
+                    }}
+                    extraData={listMessage}
+                />
+            </View>
             <View style={styles.button}>
                 <TouchableOpacity>
                     <AntDesign name='pluscircle' size={25} />
@@ -65,7 +101,7 @@ export function DoanChatView({ navigation, route }) {
                     <FontAwesome name='microphone' size={25} />
                 </TouchableOpacity>
                 <View style={styles.coverTextInputChat}>
-                    <TextInput style={styles.textInputChat} placeholder='Nhắn tin' />
+                    <TextInput onSubmitEditing={sendMessage} value={message} onChangeText={setmessage} style={styles.textInputChat} placeholder='Nhắn tin' />
                     <TouchableOpacity style={styles.iconHappy}>
                         <MaterialCommunityIcons name='emoticon-happy' size={25} />
                     </TouchableOpacity>
@@ -86,7 +122,8 @@ const styles = StyleSheet.create({
         position: 'relative',
     },
     chat: {
-        flex: 1
+        flex: 1,
+        width: "100%"
     },
     button: {
         position: 'absolute',
