@@ -33,7 +33,7 @@ export function DoanChatCenter({ navigation }) {
                 .then((reuslt) => {
                     setDataChatFriend(reuslt)
                 })
-        }, [])
+        }, [data])
     );
 
     React.useLayoutEffect(() => {
@@ -96,7 +96,7 @@ export function DoanChatCenter({ navigation }) {
                             <TouchableOpacity style={styles.friend}>
                                 <View style={styles.avt_friend}>
                                     {/* <Icon name="user" size={30} color="black" /> */}
-                                    <Image style={{ width: "100%", height: "100%", borderRadius: 30 }} source={{ uri: item.image }} />
+                                    <Image resizeMode='cover' style={{ width: "100%", height: "100%", borderRadius: 30 }} source={{ uri: item.image }} />
                                 </View>
                                 <Text style={styles.name_friend}>{item.name}</Text>
                             </TouchableOpacity>

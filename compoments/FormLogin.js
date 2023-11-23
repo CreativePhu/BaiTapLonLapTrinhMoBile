@@ -10,7 +10,7 @@ export function FormLogin({ navigation }) {
 
     const [username, setUsername] = React.useState("")
     const [password, setPassword] = React.useState("")
-    const { setData } = React.useContext(ThemeContext)
+    const { data, setData } = React.useContext(ThemeContext)
 
     useFocusEffect(
         React.useCallback(() => {
@@ -36,7 +36,7 @@ export function FormLogin({ navigation }) {
                         fetch(url, {
                             method: "GET"
                         })
-                            .then(data => data.json())
+                            .then(datafetch => datafetch.json())
                             .then((result) => {
                                 setData(result)
                                 navigation.navigate("MyFooter")

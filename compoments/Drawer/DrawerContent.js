@@ -13,7 +13,8 @@ export default function DrawerContent({ navigation }) {
     const navigationState = useNavigationState(state => state);
     const [currentTabRouteName, setCurrentTabRouteName] = React.useState("Đoạn chat")
     const namePage = navigationState?.routes[0].state?.routes[navigationState?.routes[0].state.index].name
-    const { data } = React.useContext(ThemeContext)
+    const { data, setData } = React.useContext(ThemeContext)
+    const [checkLogout, setCheckLogout] = React.useState(false)
 
     React.useEffect(() => {
         if (namePage) {
@@ -28,21 +29,37 @@ export default function DrawerContent({ navigation }) {
         { name: "CỘNG ĐỒNG FONT-END", count: 10300 },
     ])
 
+    function logout() {
+        navigation.navigate("FormLogin")
+        setCheckLogout(false)
+        setData({})
+    }
+
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.accountSetting}>
+            <View style={styles.accountSetting}>
                 <View style={styles.account}>
                     <View style={styles.imgAccount}>
                         {/* <FontAwesome name="user" size={25} color="black" /> */}
-                        <Image style={{ width: "100%", height: "100%", borderRadius: 30 }} source={{ uri: data.image }} />
+                        <Image resizeMode='contain' style={{ width: "100%", height: "100%", borderRadius: 30 }} source={{ uri: data.image }} />
                     </View>
-                    <Text style={styles.nameAccount}>{data.name}</Text>
-                    <FontAwesome name="angle-down" size={30} color="black" />
+                    <View style={{ alignItems: 'center' }}>
+                        <TouchableOpacity onPress={() => { setCheckLogout(!checkLogout) }} style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={styles.nameAccount}>{data.name}</Text>
+                            <FontAwesome name="angle-down" size={30} color="black" />
+                        </TouchableOpacity>
+                        {
+                            checkLogout &&
+                            <TouchableOpacity onPress={() => { logout() }}>
+                                <Text style={{ fontSize: 12, color: "#00a8ff" }}>Đăng xuất</Text>
+                            </TouchableOpacity>
+                        }
+                    </View>
                 </View>
                 <View style={styles.settingAccount}>
                     <Ionicons name="settings-sharp" size={20} color="black" />
                 </View>
-            </TouchableOpacity>
+            </View>
             <TouchableOpacity onPress={() => { navigation.navigate('Đoạn chat', { checkDrawer: "Đoạn chat" }) }}
                 style={[styles.contentDrawer1, currentTabRouteName === "Đoạn chat" ? { backgroundColor: "rgb(239 239 239)" } : {}]}
             >
@@ -134,7 +151,7 @@ const styles = StyleSheet.create({
     nameAccount: {
         marginLeft: 15,
         marginRight: 5,
-        fontSize: 14,
+        fontSize: 16,
     },
     settingAccount: {
         // demo

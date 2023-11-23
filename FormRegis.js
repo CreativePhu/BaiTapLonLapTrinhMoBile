@@ -74,6 +74,7 @@ export function FormRegis({ navigation }) {
                             if (result.ok) {
                                 alert("Tạo tài khoản thành công")
                                 navigation.navigate("FormLogin")
+                                ressetData()
                             } else {
                                 alert("Tạo tài khoản thất bại")
                             }
@@ -151,7 +152,7 @@ export function FormRegis({ navigation }) {
                 <TextInput value={name} onChangeText={setName} style={{ fontSize: 16, padding: 10, borderBottomWidth: 1 }} placeholder='Tên của bạn...' />
             </View>
             <View style={{ width: "100%", marginTop: 20 }}>
-                <TouchableOpacity onPress={() => { Regis(), ressetData() }} style={{ borderWidth: 1, marginLeft: 50, marginRight: 50, padding: 10, borderRadius: 10 }}>
+                <TouchableOpacity onPress={() => { Regis() }} style={{ borderWidth: 1, marginLeft: 50, marginRight: 50, padding: 10, borderRadius: 10 }}>
                     <Text style={{ textAlign: 'center', fontSize: 14, fontWeight: 'bold' }}>Đăng kí</Text>
                 </TouchableOpacity>
             </View>

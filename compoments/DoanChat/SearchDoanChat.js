@@ -17,7 +17,7 @@ export function SearchDoanChat({ navigation }) {
     const { data } = React.useContext(ThemeContext)
 
     React.useLayoutEffect(() => {
-        const url = "http://10.0.2.2:8080/v1/users/name/" + name;
+        const url = "http://10.0.2.2:8080/v1/users/name/" + name + "/username/" + data.username;
         fetch(url, {
             method: "GET"
         })
@@ -90,7 +90,7 @@ export function SearchDoanChat({ navigation }) {
                                     </View>
                                     <Text style={styles.nameFriend}>{item.name}</Text>
                                 </View>
-                                <TouchableOpacity onPress={() => { addFriend(item.username) }} style={{ borderWidth: 1, padding: 5, backgroundColor: "blue" }}>
+                                <TouchableOpacity onPress={() => { addFriend(item.username) }} style={{ padding: 5, backgroundColor: "#00a8ff" }}>
                                     <Text style={{ color: "#ffffff", fontWeight: 'bold' }}>Kết bạn</Text>
                                 </TouchableOpacity>
                             </TouchableOpacity>
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     },
     nameFriend: {
         marginLeft: 10,
-        fontSize: 16,
-        fontWeight: 'bold',
+        fontSize: 14,
+        fontWeight: '600'
     },
 })
