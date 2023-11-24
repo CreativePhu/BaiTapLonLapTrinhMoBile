@@ -1,14 +1,14 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 
 export function DanhBaCenter() {
     const [data, setData] = React.useState([
-        { id: 1, name: "Triều Nguyễn", status: "Đã chia sẻ bài viết của Quỳnh Như - Hôm Qua", image: "" },
-        { id: 2, name: "Triều Nguyễn", status: "Đã chia sẻ bài viết của Quỳnh Như - Hôm Qua", image: "" },
-        { id: 3, name: "Triều Nguyễn", status: "Đã chia sẻ bài viết của Quỳnh Như - Hôm Qua", image: "" },
-        { id: 4, name: "Triều Nguyễn", status: "Đã chia sẻ bài viết của Quỳnh Như - Hôm Qua", image: "" },
-        { id: 5, name: "Triều Nguyễn", status: "Đã chia sẻ bài viết của Quỳnh Như - Hôm Qua", image: "" },
-        { id: 6, name: "Triều Nguyễn", status: "Đã chia sẻ bài viết của Quỳnh Như - Hôm Qua", image: "" },
+        { id: 1, name: "Triều Nguyễn", status: "Đã chia sẻ bài viết của Quỳnh Như - Hôm Qua", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI4FtESFKahWDRVuWJcim_MsGi2BRkr4Irrg&usqp=CAU" },
+        { id: 2, name: "Triều Nguyễn", status: "Đã chia sẻ bài viết của Quỳnh Như - Hôm Qua", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Nji70n0nKnujZh_As_Klbd6AKI9a9vl4Ag&usqp=CAU" },
+        { id: 3, name: "Triều Nguyễn", status: "Đã chia sẻ bài viết của Quỳnh Như - Hôm Qua", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-0AK3ZTUch9s9aq9aO6ZGIN3Ra2kh76Xwg&usqp=CAU" },
+        { id: 4, name: "Triều Nguyễn", status: "Đã chia sẻ bài viết của Quỳnh Như - Hôm Qua", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNH5wMlxFJMaajQrj3RntYw6Tbu0WCZP5zJw&usqp=CAU" },
+        { id: 5, name: "Triều Nguyễn", status: "Đã chia sẻ bài viết của Quỳnh Như - Hôm Qua", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBqJraJeBOqnjwLeYic9XWEo5hbHDkhlWzbieTrGtD6-lAqjsPT6cyT8Eiax9rVs2UiWg&usqp=CAU" },
+        { id: 6, name: "Triều Nguyễn", status: "Đã chia sẻ bài viết của Quỳnh Như - Hôm Qua", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhzU6LqBst01lOFoQywumJh1CJUXk0Rb8qCHxMkcUAr3j1PF-866EAcWIp_WTpASiA59U&usqp=CAU" },
     ])
     return (
         <View style={styles.contentCenter}>
@@ -24,7 +24,7 @@ export function DanhBaCenter() {
                         return (
                             <TouchableOpacity key={item.id} style={styles.itemListContent}>
                                 <View style={styles.imgListContent}>
-
+                                    <Image resizeMode='contain' style={{ width: "100%", height: "100%", borderRadius: 20 }} source={{ uri: item.image }} />
                                 </View>
                                 <View style={styles.coverDetailListContent}>
                                     <Text style={styles.textListContent1}>{item.name}</Text>
@@ -47,8 +47,12 @@ export function DanhBaCenter() {
                         return (
                             <TouchableOpacity key={item.id} style={styles.itemListContent}>
                                 <View style={styles.imgListContent1}>
-                                    <View style={styles.imgListContent1_big}></View>
-                                    <View style={styles.imgListContent1_small}></View>
+                                    <View style={styles.imgListContent1_big}>
+                                        <Image resizeMode='contain' style={{ width: "100%", height: "100%", borderRadius: 5 }} source={{ uri: item.image }} />
+                                    </View>
+                                    <View style={styles.imgListContent1_small}>
+                                        <Image resizeMode='contain' style={{ width: "100%", height: "100%", borderRadius: 20 }} source={{ uri: item.image }} />
+                                    </View>
                                 </View>
                                 <View style={styles.coverDetailListContent}>
                                     <Text style={styles.textListContent1}>{item.name}</Text>
@@ -68,7 +72,9 @@ export function DanhBaCenter() {
                         return (
                             <TouchableOpacity key={item.id} style={styles.itemListContent}>
                                 <View style={styles.imgListContent2}>
-                                    <View style={styles.onlineSmall}></View>
+                                    <View style={styles.onlineSmall}>
+                                        <Image resizeMode='contain' style={{ width: "100%", height: "100%", borderRadius: 5 }} source={{ uri: item.image }} />
+                                    </View>
                                 </View>
                                 <View style={styles.coverDetailListContent}>
                                     <Text style={styles.textListContent1}>{item.name}</Text>
