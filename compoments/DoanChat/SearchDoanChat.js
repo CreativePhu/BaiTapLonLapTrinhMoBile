@@ -103,6 +103,24 @@ export function SearchDoanChat({ navigation }) {
             })
     }
 
+    function createChat(username) {
+        const url = `http://10.0.2.2:8080/v1/chats/addchat/user1/${data.username}/user2/${username}`
+        fetch(url, {
+            method: "POST",
+        })
+            .then((result) => {
+                if (result.ok) {
+                    alert("Tạo chat thành công")
+                    navigation.navigate("Đoạn chat")
+                } else {
+                    alert("Tạo chat thất bại")
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
     React.useLayoutEffect(() => {
         navigation.setOptions({
             headerShown: true,
@@ -146,12 +164,14 @@ export function SearchDoanChat({ navigation }) {
                                     </View>
                                     <Text style={styles.nameFriend}>{item.name}</Text>
                                 </View>
-                                {
-                                    checkIsFriend(item)
-                                }
-                                <TouchableOpacity onPress={() => { navigation.navigate("Đoạn chat view", { data: { name: item.name, usernamereceive: item.username, usernamesender: data.username } }) }} style={{ padding: 5, backgroundColor: "#fed330" }}>
-                                    <Text style={{ color: "#ffffff", fontWeight: 'bold' }}> Trò chuyện </Text>
-                                </TouchableOpacity>
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                    {
+                                        checkIsFriend(item)
+                                    }
+                                    <TouchableOpacity onPress={() => { createChat(item.username) }} style={{ padding: 5, backgroundColor: "#fed330" }}>
+                                        <Text style={{ color: "#ffffff", fontWeight: 'bold' }}> Trò chuyện </Text>
+                                    </TouchableOpacity>
+                                </View>
                             </TouchableOpacity>
                         )
                     }}

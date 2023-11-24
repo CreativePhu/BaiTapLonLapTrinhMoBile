@@ -23,10 +23,10 @@ export default function DrawerContent({ navigation }) {
     }, [namePage])
 
     const [groups, setGroups] = React.useState([
-        { name: "IT TUYỂN DỤNG - TÌM VIỆC LÀM", count: 1000 },
-        { name: "GIẢI ĐỀ TOEIC 2023", count: 12000 },
-        { name: "UI / UX DESIGNER & DEVELOPER", count: 1300 },
-        { name: "CỘNG ĐỒNG FONT-END", count: 10300 },
+        { name: "IT TUYỂN DỤNG - TÌM VIỆC LÀM", count: 1000, image: "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/396722514_185485891277815_6225579132215858343_n.png?stp=c41.0.50.50a_cp0_dst-png_p50x50&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=PR3pZdwrBukAX8gRvbh&_nc_ht=scontent.fsgn5-10.fna&oh=00_AfCDvuhHj0wdI0EAP45OoC4VrbHXaPHySII1OnaMACE_fw&oe=6564C75D" },
+        { name: "GIẢI ĐỀ TOEIC 2023", count: 12000, image: "https://scontent.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/329549658_2468318956672524_6427325944667607830_n.png?stp=c23.0.50.50a_cp0_dst-png_p50x50&_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eNEJ-kIg7ysAX_CDdAU&_nc_ht=scontent.fsgn5-9.fna&oh=00_AfBuUzAJuXTSK6XIVkAVERnwUY6hLHANw8HB-jsjrLvSWA&oe=6565E862" },
+        { name: "UI / UX DESIGNER & DEVELOPER", count: 1300, image: "https://scontent.fsgn5-12.fna.fbcdn.net/v/t39.30808-6/356241651_6592120824165027_8487120552825741457_n.png?stp=c66.0.50.50a_cp0_dst-png_p50x50&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=uKme6hze6lgAX_FI948&_nc_ht=scontent.fsgn5-12.fna&oh=00_AfDEo4VRc8lF_WAZmySAonyOQ3QSufvVSBpRO4SR4dELOg&oe=6565CE03" },
+        { name: "CỘNG ĐỒNG FONT-END", count: 10300, image: "https://scontent.fsgn5-12.fna.fbcdn.net/v/t39.30808-6/279380050_136737985600025_6667832826954666998_n.jpg?stp=c19.0.50.50a_cp0_dst-jpg_p50x50&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=e90FU4B6m7cAX_3mirz&_nc_ht=scontent.fsgn5-12.fna&oh=00_AfBIzJUBDsJ3IzMk5k0g_AGzHd4ue_m6OaHw-o9sHopV5A&oe=6564BC64" },
     ])
 
     function logout() {
@@ -106,7 +106,8 @@ export default function DrawerContent({ navigation }) {
                         return (
                             <TouchableOpacity key={index} style={styles.group}>
                                 <View style={styles.imgGroup}>
-                                    <FontAwesome name="user" size={25} color="black" />
+                                    {/* <FontAwesome name="user" size={25} color="black" /> */}
+                                    <Image resizeMode='contain' style={{ width: "100%", height: "100%", borderRadius: 5 }} source={{ uri: item.image }} />
                                 </View>
                                 <View style={styles.detailContentGroup}>
                                     <Text style={styles.nameGroup}>{item.name}</Text>

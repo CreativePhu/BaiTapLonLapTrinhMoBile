@@ -6,6 +6,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { TextInput } from 'react-native-gesture-handler';
+import { useFocusEffect } from '@react-navigation/native';
+import { ThemeContext } from '../../store/myStore';
 
 export function DoanChatView({ navigation, route }) {
 
@@ -49,15 +51,20 @@ export function DoanChatView({ navigation, route }) {
 
     const [message, setmessage] = React.useState("")
     const [listMessage, setListMessage] = React.useState("")
+    const [ressetMessage, setRessetMessage] = React.useState(false)
+    const { data } = React.useContext(ThemeContext)
 
     function sendMessage() {
-        const url = `http://10.0.2.2:8080/v1/messages/addmesssage/${message}/receive/${route.params?.data?.usernamereceive}/sender/${route.params?.data?.usernamesender}`
+        const url = `http://10.0.2.2:8080/v1/messages/addmesssage/${message}/sender/${route.params?.data?.usernamesender}/idChat/${route.params?.data?.idChat}`
+        console.log(url)
         fetch(url, {
             method: "POST"
         })
             .then((result) => {
                 if (result.ok) {
                     alert("Gửi thành công !")
+                    setmessage("")
+                    setRessetMessage(!ressetMessage)
                 } else {
                     alert("Fail")
                 }
@@ -65,7 +72,7 @@ export function DoanChatView({ navigation, route }) {
     }
 
     React.useLayoutEffect(() => {
-        const url = `http://10.0.2.2:8080/v1/messages/select/1`
+        const url = `http://10.0.2.2:8080/v1/messages/select/${route.params?.data?.idChat}`
         fetch(url, {
             method: "GET"
         })
@@ -73,7 +80,20 @@ export function DoanChatView({ navigation, route }) {
             .then((data) => {
                 setListMessage(data)
             })
-    }, [])
+    }, [ressetMessage])
+
+    useFocusEffect(
+        React.useCallback(() => {
+            const url = `http://10.0.2.2:8080/v1/messages/select/${route.params?.data?.idChat}`
+            fetch(url, {
+                method: "GET"
+            })
+                .then(result => result.json())
+                .then((data) => {
+                    setListMessage(data)
+                })
+        }, [route.params?.data?.idChat])
+    );
 
     return (
         <View style={styles.container}>
@@ -82,7 +102,11 @@ export function DoanChatView({ navigation, route }) {
                     style={{ flex: 1 }}
                     data={listMessage}
                     renderItem={({ item }) => {
-                        return <Text>{item.content}</Text>
+                        return (
+                            <View style={{ padding: 10, borderRadius: 20, marginTop: 15, backgroundColor: data.username === item.userSender.username ? "#74b9ff" : "#81ecec" }}>
+                                <Text style={{ textAlign: 'center', fontSize: 16, fontWeight: 'bold', color: "#ffffff" }}>{item.content}</Text>
+                            </View>
+                        )
                     }}
                     extraData={listMessage}
                 />
@@ -123,7 +147,6 @@ const styles = StyleSheet.create({
     },
     chat: {
         flex: 1,
-        width: "100%"
     },
     button: {
         position: 'absolute',

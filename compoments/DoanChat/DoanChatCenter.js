@@ -14,13 +14,22 @@ export function DoanChatCenter({ navigation }) {
 
     useFocusEffect(
         React.useCallback(() => {
-            const url = "http://10.0.2.2:8080/v1/friends/" + data.username;
-            fetch(url, {
+            const url1 = "http://10.0.2.2:8080/v1/friends/" + data.username;
+            fetch(url1, {
                 method: "GET"
             })
                 .then(data => data.json())
                 .then((reuslt) => {
                     setDataChatFriend(reuslt)
+                })
+
+            const url2 = "http://10.0.2.2:8080/v1/chats/select/user1/" + data.username;
+            fetch(url2, {
+                method: "GET"
+            })
+                .then(data => data.json())
+                .then((reuslt) => {
+                    setDataChat(reuslt)
                 })
         }, [data])
     );
@@ -116,7 +125,7 @@ export function DoanChatCenter({ navigation }) {
                             }
                         });
                         return (
-                            <TouchableOpacity key={item.id} onPress={() => { navigation.navigate("Đoạn chat view", { data: { name: users?.name, usernamereceive: users?.username, usernamesender: data.username } }) }} style={styles.chat}>
+                            <TouchableOpacity key={item.id} onPress={() => { navigation.navigate("Đoạn chat view", { data: { name: users?.name, usernamereceive: users?.username, usernamesender: data.username, idChat: item?.id } }) }} style={styles.chat}>
                                 <View style={styles.imgChat}>
                                     {/* <Icon name="user" size={30} color="black" /> */}
                                     <Image resizeMode='contain' style={{ width: "100%", height: "100%", borderRadius: 30 }} source={{ uri: users?.image }} />
